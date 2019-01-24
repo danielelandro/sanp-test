@@ -2,8 +2,8 @@
 | **SEZIONE I – FUNZIONAMENTO GENERALE DEL SISTEMA** |
 +----------------------------------------------------+
 
-1. Funzionamento generale del sistema
-=====================================
+Funzionamento generale del sistema
+==================================
 
 Obiettivo strategico del Sistema pagoPA è quello di facilitare e
 diffondere gli strumenti di pagamento elettronici, in particolare,
@@ -144,7 +144,7 @@ soggetti coinvolti:
 
 |image0|
 
-Figura 1: EPC Four Corners model
+Figura : EPC Four Corners model
 
 Il perfezionamento delle operazioni tra banche avviene attraverso il
 sistema di regolamento e compensazione (CSM) utilizzando le regole SEPA.
@@ -209,8 +209,8 @@ variazioni conseguenti a modificazioni della normativa, alle mutate
 esigenze delle pubbliche amministrazioni e degli utenti, all’evoluzione
 del contesto tecnologico.
 
-1.1 Il ciclo di vita del pagamento gestito sul Sistema pagoPA
--------------------------------------------------------------
+Il ciclo di vita del pagamento gestito sul Sistema pagoPA
+---------------------------------------------------------
 
 Nell’ambito delle relazioni tra l’utilizzatore finale e gli Enti
 Creditori, la necessità di effettuare pagamenti a favore di questi
@@ -221,7 +221,7 @@ può essere schematizzato nella Figura 2.
 
 |image1|
 
-Figura 2: Ciclo di vita del pagamento
+Figura : Ciclo di vita del pagamento
 
 1. L’esigenza del pagamento può nascere in due modi che innescano
    processi di business differenti:
@@ -267,8 +267,8 @@ prevedono lo scambio di oggetti contenenti le informazioni necessarie a
 garantire la corretta gestione dei processi. Tali *workflow* sono
 descritti nel dettaglio nella sezione III
 
-1.2 L’adesione al Sistema pagoPA
---------------------------------
+L’adesione al Sistema pagoPA
+----------------------------
 
 Il sistema complessivo - formato dalla comunità di Enti Creditori,
 Prestatori di Servizi di Pagamento ed eventuali gestori di pubblici
@@ -327,8 +327,8 @@ determineranno l’invocazione dei Servizi di Nodo è a cura dei soggetti
 aderenti (Ente Creditore, Prestatori di Servizi di Pagamento e/o
 intermediari da questi utilizzati) che erogano i servizi applicativi.
 
-1.3 *Governance* del sistema
-----------------------------
+*Governance* del sistema
+------------------------
 
 Stante la valenza infrastrutturale dell’iniziativa, la guida ed il
 controllo del sistema (*governance*) è affidata all’\ **Agenzia per
@@ -337,8 +337,8 @@ definizione di regole e standard, definisce l’elenco delle Pubbliche
 Amministrazioni e dei Prestatori di Servizi di Pagamento partecipanti al
 sistema, provvede alla gestione ed al monitoraggio dell’infrastruttura;
 
-1.4 Gli oggetti scambiati
--------------------------
+Gli oggetti scambiati
+---------------------
 
 Nei *workflow* applicativi gestiti dal NodoSPC è previsto lo scambio di
 oggetti applicativi costituiti da documenti informatici. Le funzioni
@@ -418,8 +418,8 @@ Nell’ambito delle funzionalità esposte dal NodoSPC è previsto lo scambio
 di ulteriori oggetti applicativi e servizi applicativi opzionali che
 verranno dettagliati nella Sezione III.
 
-1.5 Obblighi degli Enti Creditori
----------------------------------
+Obblighi degli Enti Creditori
+-----------------------------
 
 Al fine di gestire nel modo migliore l’iter del processo di pagamento
 gli Enti Creditori hanno l’obbligo di rendere disponibili direttamente
@@ -445,8 +445,8 @@ Si sottolinea inoltre che l’Ente Creditore dovrà mettere a disposizione
 dell’Utilizzatore finale un servizio di *help desk* disponibile h24 7/7
 unitamente a un tavolo operativo.
 
-1.6 Trasparenza nei confronti degli utilizzatori finali
--------------------------------------------------------
+Trasparenza nei confronti degli utilizzatori finali 
+----------------------------------------------------
 
 La trasparenza dell’operazione di pagamento deve essere garantita nei
 confronti dell’utilizzatore finale. A tal fine il NodoSPC mette a
@@ -474,8 +474,8 @@ indicare all’utilizzatore finale l’importo della commissione specifica
 e/o di maggior favore praticata all’atto dell’esecuzione del singolo
 pagamento.
 
-1.7 Funzioni accessorie di controllo
-------------------------------------
+Funzioni accessorie di controllo 
+---------------------------------
 
 Il Sistema prevede modalità di controllo focalizzate sulla verifica
 della corretta applicazione degli Standard di Servizio (p.e. norme di
@@ -500,8 +500,8 @@ supporto definito dal soggetto che registra tali informazioni. Il
 NodoSPC fornisce tali informazioni su supporto cartaceo e file XML (i
 dettagli relativi ai formati sono riportati in Sezione III).
 
-1.8 Sicurezza e conservazione
------------------------------
+Sicurezza e conservazione
+-------------------------
 
 Tutte le informazioni trattate nell’ambito del Sistema saranno gestite
 dai diversi attori che interagiscono con il NodoSPC, ciascuno
@@ -522,8 +522,8 @@ dell’intera transazione di pagamento, sia opportuno conservare a norma
 sia la Ricevuta Telematica, sia la Richiesta di Pagamento Telematico e
 non anche il Flusso di Rendicontazione.
 
-1.9 *Software Development KIT* per applicazioni “mobile”
---------------------------------------------------------
+*Software Development KIT* per applicazioni “mobile”
+----------------------------------------------------
 
 Per supportare lo sviluppo di App *mobile* rilasciate dagli Enti
 Creditori, che includano funzionalità di pagamento, l’Agenzia per
