@@ -12,7 +12,9 @@ Definizioni e Acronimi
 |                                                           |                                                           |
 |                                                           |    Gestore del Nodo dei Pagamenti-SPC.                    |
 +-----------------------------------------------------------+-----------------------------------------------------------+
-|    Allegato A                                             |    Il documento allegato alle Linee guida.                |
+|    Allegato A                                             |    Il documento "*Specifiche attuative dei codici         |
+|                                                           |    identificativi di versamento, riversamento e           |
+|                                                           |    rendicontazione*" allegato alle Linee guida.           |
 +-----------------------------------------------------------+-----------------------------------------------------------+
 |    Buyer Bank                                             |    Nell’ambito del servizio MyBank è la banca             |
 |                                                           |    dell’utilizzatore finale.                              |
@@ -99,8 +101,10 @@ Definizioni e Acronimi
 +-----------------------------------------------------------+-----------------------------------------------------------+
 |    IUV                                                    |    Identificativo Univoco Versamento                      |
 +-----------------------------------------------------------+-----------------------------------------------------------+
-|    Linee guida                                            |    Il documento di cui le presenti specifiche attuative   |
-|                                                           |    rappresentano l’Allegato B.                            |
+|    Linee guida                                            |    Il documento “Linee guida per l'effettuazione dei      |
+|                                                           |    pagamenti a favore delle pubbliche amministrazioni e   |
+|                                                           |    dei gestori di pubblici servizi” di cui le presenti    |
+|                                                           |    specifiche attuative rappresentano l’Allegato B.       |
 +-----------------------------------------------------------+-----------------------------------------------------------+
 |    MEF                                                    |    Ministero dell’Economia e delle Finanze                |
 +-----------------------------------------------------------+-----------------------------------------------------------+

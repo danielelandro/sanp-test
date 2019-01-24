@@ -29,8 +29,8 @@ integrare servizi di Enti Creditori e Prestatori di Servizi di Pagamento
 con il NodoSPC sono descritti nella sezione III.
 
 La modellazione segue le notazioni dello standard *Business Process
-Model and Notation* (BPMN) versione 2.0, di cui si riporta, in Figura 3,
-i simboli utilizzati e il loro significato.
+Model and Notation* (BPMN) versione 2.0, di cui si riporta, in **Figura
+1**, i simboli utilizzati e il loro significato.
 
 |image0|
 
@@ -203,7 +203,7 @@ La revoca dell’iscrizione al servizio di avvisatura deve essere
 richiesta al Prestatore di Servizi di Pagamento, che ne stabilisce le
 modalità.
 
-Nel processo di avvisatura *push* (Figura 4) sono coinvolti quattro
+Nel processo di avvisatura *push* (**Figura 2**) sono coinvolti quattro
 soggetti:
 
 -  utilizzatore finale
@@ -266,7 +266,7 @@ digitale”, e avviene secondo uno schema sincrono, attivato
 dall'utilizzatore finale stesso attraverso le stesse modalità descritte
 nel paragrafo precedente.
 
-Nel processo in oggetto (Figura 5) sono coinvolti quattro soggetti:
+Nel processo in oggetto (**Figura 3**) sono coinvolti quattro soggetti:
 
 -  utilizzatore finale
 
