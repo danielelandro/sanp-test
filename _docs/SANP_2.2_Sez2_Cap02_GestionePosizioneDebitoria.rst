@@ -34,7 +34,7 @@ i simboli utilizzati e il loro significato.
 
 |image0|
 
-Figura 1: Notazioni BPMN 2.0 utilizzate
+**Figura** **1: Notazioni BPMN 2.0 utilizzate**
 
 Gestione della posizione debitoria
 ==================================
@@ -216,7 +216,7 @@ soggetti:
 
 |image1|
 
-Figura 2: Il processo di gestione dell’avvisatura *push*
+**Figura** **2: Il processo di gestione dell’avvisatura push**
 
 Il processo di avvisatura *push* è iniziato dall’Ente Creditore quando
 genera una posizione debitoria (*Task* T1.1.1). Una volta generata la
@@ -278,7 +278,7 @@ Nel processo in oggetto (Figura 5) sono coinvolti quattro soggetti:
 
 |image2|
 
-Figura : Il processo di gestione dell’avvisatura *pull*
+**Figura** **3: Il processo di gestione dell’avvisatura pull**
 
 Il processo segue i seguenti passi:
 

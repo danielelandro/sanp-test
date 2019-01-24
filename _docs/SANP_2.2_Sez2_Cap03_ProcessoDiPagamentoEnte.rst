@@ -18,14 +18,14 @@ fanno riferimento.
 Il diagramma di Figura 8 descrive il processo di pagamento attraverso
 l’Ente Creditore. Al fine di rendere tale diagramma immediatamente
 leggibile la descrizione del *workflow* è stata aggregata in
-sottoparagrafi secondo lo schema logico che segue (Figura 6).
+sottoparagrafi secondo lo schema logico che segue (**Figura 1**).
 
 |image0|
 
-**Figura** **1 Schema logico del processo di business del pagamento
+**Figura** **1** **Schema logico del processo di business del pagamento
 presso l’Ente Creditore**
 
-Nel processo in oggetto (Figura 7) sono coinvolti quattro soggetti:
+Nel processo in oggetto (**Figura 2**) sono coinvolti quattro soggetti:
 
 -  utilizzatore finale
 
