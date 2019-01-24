@@ -278,7 +278,7 @@ Nel processo in oggetto (Figura 5) sono coinvolti quattro soggetti:
 
 |image2|
 
-Figura 3: Il processo di gestione dell’avvisatura *pull*
+Figura : Il processo di gestione dell’avvisatura *pull*
 
 Il processo segue i seguenti passi:
 
