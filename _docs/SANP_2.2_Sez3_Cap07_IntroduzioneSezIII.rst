@@ -380,7 +380,7 @@ successiva.
 
 |image5|
 
-**Figura** **4: Stati del pagamento
+**Figura** **4: Stati del pagamento** **
 **
 
 +-----------------------+-----------------------+-----------------------+
