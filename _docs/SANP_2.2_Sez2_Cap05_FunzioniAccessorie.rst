@@ -1,8 +1,8 @@
 Funzioni accessorie
 ===================
 
- Revoca della Ricevuta Telematica
----------------------------------
+Revoca della Ricevuta Telematica
+--------------------------------
 
 Qualora l’utilizzatore finale - ai sensi degli articoli 13 e 14 del
 decreto legislativo 27 gennaio 2010, n. 11, ovvero per richieste
@@ -61,8 +61,8 @@ procedure amministrative di back-office al fine di gestire, nel rispetto
 della normativa vigente, i flussi relativi a reclami, rimborsi e revoche
 sia dal punto di vista amministrativo, sia dal punto di vista contabile.
 
- Annullo tecnico
-----------------
+Annullo tecnico
+---------------
 
 L’annullo tecnico è una casistica dell’invio di una richiesta di revoca
 che indica che la RT inviata è tecnicamente errata, dunque il Prestatore
@@ -108,8 +108,8 @@ tecnico al NodoSPC (*Task* T4.1), che verifica la casistica del caso
    dall’Ente Creditore (*Task* T4.11) attraverso il NodoSPC (*Task*
    T4.10)
 
- Storno del pagamento
----------------------
+Storno del pagamento
+--------------------
 
 Qualora l’Utilizzatore finale chieda a vario titolo l’annullamento
 (storno) di un pagamento all’Ente Creditore presso il quale questo è
@@ -211,8 +211,8 @@ Sistema pagoPA, almeno le seguenti informazioni:
 -  Causale del versamento indicata nella richiesta di pagamento
    telematico.
 
- Riconciliazione dei pagamenti
-------------------------------
+Riconciliazione dei pagamenti
+-----------------------------
 
 Con rifermento alle macro-fasi del processo, una volta effettuata la
 fase di “Regolamento contabile” da parte del Prestatore di Servizi di
@@ -308,8 +308,8 @@ identificativo univoco di riscossione: pertanto l’Ente Creditore dovrà
 opportunamente tenerne conto nelle proprie procedure applicative di
 riconciliazione.
 
- Altre funzioni accessorie
---------------------------
+Altre funzioni accessorie
+-------------------------
 
 Seppur meno utilizzate nella pratica comune, si citano di seguito alcune
 ulteriori funzione accessorie messe a disposizione dal Sistema pagoPA:
