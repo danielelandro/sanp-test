@@ -32,7 +32,7 @@ demandato il compito di gestire la propria piattaforma software di
 interconnessione e rendere disponibili le interfacce verso il NodoSPC.
 Nella figura seguente sono rappresentate le varie casistiche possibili.
 
-|C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\deploymentDiagram.png|
+|image0|
 
 **Figura** **1: Diagramma delle connessioni logiche al NodoSPC**
 
@@ -74,9 +74,7 @@ cooperazione:
    interattivo per la scelta del PSP con cui effettuare il pagamento da
    parte dell’Utilizzatore finale.
 
-..
-
-   |C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\cd_interfacce.png|
+|image1|
 
 **Figura** **2: Diagramma delle interfacce di comunicazione**
 
@@ -273,9 +271,9 @@ automatiche o manuali, da mettere in atto direttamente da parte degli
 attori connessi al sistema (EC, PSP) i possibili errori saranno
 classificati in base alle categorie riportate nella figura sottostante.
 
-|intro_errori_revoca_storno_riconciliazione|
+|image4|
 
-**Tabella** **3: Raggruppamento delle possibili tipologie di errori**
+**Figura** **3: Raggruppamento delle possibili tipologie di errori**
 
 Le tipologie di errori con relativa descrizione e macro-categoria di
 appartenenza sono descritte nella tabella sottostante.
@@ -382,7 +380,7 @@ successiva.
 
 |image5|
 
-**Tabella** **5: Stati del pagamento
+**Figura** **4: Stati del pagamento
 **
 
 +-----------------------+-----------------------+-----------------------+
@@ -536,7 +534,7 @@ successiva.
 |                       | del sistema pagoPA*   |                       |
 +-----------------------+-----------------------+-----------------------+
 
-**Tabella** **6:** **Descrizione degli stati del pagamento**
+**Tabella** **4:** **Descrizione degli stati del pagamento**
 
 La seguente tabella ha lo scopo di associare a ciascuno dei *task* dei
 modelli di business di cui alla sezione II le primitive SOAP coinvolte,
@@ -911,21 +909,21 @@ stessi *task*.
 
 **Tabella** **7: Quadro sinottico delle transazioni di stato**
 
-.. |C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\deploymentDiagram.png| image:: media_IntroduzioneSezIII/media/image1.png
-   :width: 5.36207in
-   :height: 4.8097in
-.. |C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\cd_interfacce.png| image:: media_IntroduzioneSezIII/media/image2.png
-   :width: 6.69272in
-   :height: 2.02431in
+.. |image0| image:: media_IntroduzioneSezIII/media/image1.png
+   :width: 5.51119in
+   :height: 4.93819in
+.. |image1| image:: media_IntroduzioneSezIII/media/image2.png
+   :width: 6.69306in
+   :height: 2.02569in
 .. |image2| image:: media_IntroduzioneSezIII/media/image3.png
    :width: 0.85417in
    :height: 0.23958in
 .. |image3| image:: media_IntroduzioneSezIII/media/image3.png
    :width: 0.85417in
    :height: 0.23958in
-.. |intro_errori_revoca_storno_riconciliazione| image:: media_IntroduzioneSezIII/media/image4.png
-   :width: 5.11181in
-   :height: 3.68681in
+.. |image4| image:: media_IntroduzioneSezIII/media/image4.png
+   :width: 4.67011in
+   :height: 3.36667in
 .. |image5| image:: media_IntroduzioneSezIII/media/image5.png
-   :width: 3.17917in
-   :height: 8.11181in
+   :width: 3.00471in
+   :height: 7.66667in
