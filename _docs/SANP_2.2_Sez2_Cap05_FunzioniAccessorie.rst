@@ -70,17 +70,19 @@ di Servizi di Pagamento può invocarla unicamente ricorra uno dei
 seguenti casi di errori procedurali:
 
 a) Invio di una Ricevuta Telematica (RT) con esito **positivo**,
-      tuttavia l’utilizzatore finale non ha ricevuto nessun addebito né
-      il Prestatore di Servizi di Pagamento ha emesso alcuna
-      attestazione di pagamento (scontrino, ricevuta, e-mail, ecc.);
+   tuttavia l’utilizzatore finale non ha ricevuto nessun addebito né il
+   Prestatore di Servizi di Pagamento ha emesso alcuna attestazione di
+   pagamento (scontrino, ricevuta, e-mail, ecc.);
 
 b) Invio di una Ricevuta Telematica (RT) con esito **negativo**,
-      tuttavia l’utilizzatore finale ha ricevuto un addebito e il
-      Prestatore di Servizi di Pagamento ha emesso un’attestazione di
-      pagamento (scontrino, ricevuta, e-mail, ecc.)
+   tuttavia l’utilizzatore finale ha ricevuto un addebito e il
+   Prestatore di Servizi di Pagamento ha emesso un’attestazione di
+   pagamento (scontrino, ricevuta, e-mail, ecc.).
 
-Al di fuori delle circostanze sopra descritte l’utilizzo dell’annullo
-tecnico non è ammesso.
+..
+
+   Al di fuori delle circostanze sopra descritte l’utilizzo dell’annullo
+   tecnico non è ammesso.
 
 Il processo di annullo tecnico, descritto in **Figura 2**, è il seguente
 
@@ -283,13 +285,14 @@ La riconciliazione in questo caso deve essere effettuata in due fasi:
    presenti nelle ricevute telematiche (RT) memorizzate presso di sé
    sulla base della seguente coppia di informazioni:
 
-a. Identificativo univoco versamento presente sulla ricevuta telematica
-   inviata all’Ente Creditore che deve coincidere con lo stesso dato
-   presente nella struttura dati del Flusso di rendicontazione;
+   a. Identificativo univoco versamento presente sulla ricevuta
+      telematica inviata all’Ente Creditore che deve coincidere con lo
+      stesso dato presente nella struttura dati del Flusso di
+      rendicontazione;
 
-b. importo presente sulla ricevuta telematica inviata all’Ente Creditore
-   che deve coincidere con il dato omonimo presente nella struttura dati
-   del Flusso di rendicontazione.
+   b. importo presente sulla ricevuta telematica inviata all’Ente
+      Creditore che deve coincidere con il dato omonimo presente nella
+      struttura dati del Flusso di rendicontazione.
 
 Il NodoSPC fornisce apposite funzioni centralizzate a disposizione dei
 Prestatori di Servizi di Pagamento e degli Enti Creditori, con le quali
