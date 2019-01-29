@@ -1,8 +1,8 @@
-Modello dei dati 
-=================
+Modello dei dati
+================
 
-Pagamenti 
-==========
+Pagamenti
+---------
 
 In questo paragrafo sono descritti i seguenti documenti XML scambiati
 tra gli attori del sistema nell’ambito dei processi di pagamento:
@@ -76,7 +76,7 @@ In particolare:
 -  ad un ER corrisponde una ed una sola RR.
 
 Richiesta di Pagamento Telematica (RPT)
-=======================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La RPT descrive una richiesta di pagamento di una Posizione Debitoria.
 
@@ -187,7 +187,7 @@ necessari per tali operazioni:
    contabile del pagamento, specificando il tipo e codice contabilità.
 
 Richiesta di acquisto Marca da Bollo Digitale
-=============================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 L’EC può consentire all’Utilizzatore finale, con un unico versamento, il
 contestuale acquisto di uno o più Marche da bollo digitali, con le
@@ -214,7 +214,7 @@ selezione dei PSP, quelli convenzionati con l’Agenzia delle Entrate per
 l’acquisto della Marca da Bollo Digitale (sistema @e.bollo).
 
 Ricevuta Telematica (RT)
-========================
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 La RT restituisce all’EC il documento che conclude il flusso innescato
 da una richiesta di pagamento (RPT) ed attesta, qualora l’esito sia
@@ -258,7 +258,7 @@ generati dal PSP:
    riferimento.
 
 Richiesta di revoca (RR)
-========================
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 La RR contiene tutte le informazioni necessarie per gestire sia la
 revoca che lo storno di un pagamento, definiti in sezione II.
@@ -284,7 +284,7 @@ In particolare, la RR è composta dai seguenti elementi:
 -  **datiRevoca**: descrive il dettaglio dell’operazione di revoca.
 
 Esito Della Revoca (ER)
-=======================
+~~~~~~~~~~~~~~~~~~~~~~~
 
 La ER descrive l’esito di una RR di un pagamento effettuato.
 
@@ -311,7 +311,7 @@ In particolare la ER è composta dai seguenti elementi:
 -  **riferimento**: insieme dei campi che identificano la RR effettuata.
 
 Flusso di rendicontazione (FR)
-==============================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Il FR referenzia i singoli pagamenti accreditati tramite bonifico
 cumulativo di un conto corrente dell’EC, conformemente a quanto
@@ -364,7 +364,7 @@ In particolare, il FR è identificato dai seguenti parametri:
       d’ordine) nella lista di versamenti all’interno della RT.
 
 Messaggi di errore
-==================
+------------------
 
 In caso di errori verificatisi nel colloquio tra i vari soggetti
 aderenti (EC e PSP) ed il NodoSPC, i relativi messaggi di errore vengono
@@ -661,7 +661,7 @@ condizioni di errore (*faultString*).
 **Tabella** **1: Codici di errore**
 
 Avvisatura digitale
-===================
+-------------------
 
 +----------+-----------------------------------------------+
 | |image8| | **Paragrafo soggetto a proposta di modifica** |
@@ -692,7 +692,7 @@ precedenti.
 **Figura** **9: Diagramma delle classi dell’avvisatura**
 
 Avviso digitale
-===============
+~~~~~~~~~~~~~~~
 
 L’Avvisatura rappresenta il documento telematico con il quale un EC
 notifica ad un Soggetto Pagatore un Avviso di Pagamento.
@@ -755,7 +755,7 @@ Il tipo *ListaAvvisiDigitali* è la struttura composta dall’insieme di
 più avvisi, purché di numero inferiore a 100.000 elementi.
 
 Esito Inoltro Avvisatura
-========================
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 È un oggetto informatico, predisposto dal Nodo-SPC, che permette all’EC
 di conoscere l’esito del relativo inoltro massivo di Avvisi digitali.
@@ -789,7 +789,7 @@ L’esito di un avvisatura è descritto dai seguenti parametri:
    (codiceEsito<>0), descrive l’evento stesso.
 
 Iscrizione al servizio
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 Definisce lo schema secondo il quale un PSP richiede al NodoSPC di
 ricevere le avvisature destinate ad un Soggetto Pagatore.
@@ -813,7 +813,7 @@ Contiene al suo interno informazioni riguardo a:
    -  ‘D’= disattivazione
 
 Configurazione
-==============
+--------------
 
 In questo paragrafo vengono descritte tutte le informazioni necessarie
 al NodoSPC per configurare opportunamente gli attori ad esso connessi,
@@ -824,7 +824,7 @@ disposizione l’applicazione *web* Portale delle Adesioni. Per ulteriori
 dettagli consultare la Sezione IV.
 
 Ente Creditore
-==============
+~~~~~~~~~~~~~~
 
 L’oggetto Ente Creditore viene identificato nel sistema attraverso il
 proprio codice fiscale (campo *idDominio*) e caratterizzato dai seguenti
@@ -848,7 +848,7 @@ primitive SOAP descritte fra le funzioni ausiliarie.
 **Figura** **13: Diagramma delle classi per la configurazione di un EC**
 
 PSP
-===
+~~~
 
 L’oggetto PSP viene identificato nel sistema (campo *identificativoPSP*)
 attraverso il codice BIC oppure da un codice formato dalla
@@ -875,7 +875,8 @@ Inoltre, per la configurazione delle modalità di pagamento nel sistema
 pagoPA, il PSP produce il documento Catalogo Dati Informativi, come
 riportato nella sezione IV.
 
-1. Pubblicazione
+ Pubblicazione
+^^^^^^^^^^^^^^
 
 All’interno di questa struttura, il PSP specifica gli attributi comuni a
 tutti i servizi di pagamento che rende disponibili sul sistema:
@@ -899,7 +900,8 @@ tutti i servizi di pagamento che rende disponibili sul sistema:
    l’Agenzia delle Entrate come rivenditore della Marca da bollo
    digitale attraverso il sistema *@e.bollo*.
 
-   2. Canale
+Canale
+^^^^^^
 
 La struttura raccoglie tutte le informazioni relative a un servizio di
 pagamento messo a disposizione dal PSP sul sistema pagoPA:
@@ -986,7 +988,8 @@ pagamento messo a disposizione dal PSP sul sistema pagoPA:
 Inoltre, un canale è definito dagli attributi di seguito descritti in
 paragrafi dedicati:
 
-3. Servizio
+Servizio
+^^^^^^^^
 
 La struttura descrive come verrà visualizzato all’Utilizzatore finale
 per selezionare il PSP sul sistema WISP:
@@ -996,7 +999,8 @@ per selezionare il PSP sul sistema WISP:
 -  *logoServizio*: logotipo del servizio / app. Con risoluzione
    400x128px.
 
-   4. Informazioni dettaglio Servizio
+Informazioni dettaglio Servizio
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  *codiceLingua*: identifica la lingua utilizzata per le informazioni
    di dettaglio della presente struttura. Le lingue supportate dal
@@ -1020,13 +1024,15 @@ per selezionare il PSP sul sistema WISP:
 -  *tavoloOperativo*: indica i riferimenti del presidio tecnico
    predisposto per cooperare con il Tavolo Operativo del NodoSPC.
 
-   5. Plugin
+Plugin
+^^^^^^
 
 La struttura permette al PSP di definire un set di parametri
 personalizzato da utilizzare per interpretare i parametri della redirect
 di risposta alla pagina di erogazione del servizio WISP vedi capitolo 9.
 
-6. Costi
+Costi
+^^^^^
 
 La struttura definisce la *policy* del calcolo delle commissioni che il
 sistema pagoPA deve applicare.
@@ -1050,7 +1056,8 @@ commissione:
    effettuare. In questo caso è possibile specificare il costo della
    commissione in base alla fascia di prezzo.
 
-   7. Acquirer
+Acquirer
+^^^^^^^^
 
 L’\ *Acquirer* è un soggetto che ha instaurato un rapporto con un PSP
 aderente a pagoPA al fine di gestire le transazioni con le carte di
@@ -1073,7 +1080,7 @@ L’\ *Acquirer* viene configurato attraverso i seguenti parametri:
    emesse da altri soggetti.
 
 Giornale degli eventi
-=====================
+---------------------
 
 Il Giornale degli Eventi (GDE) ha l’obiettivo di consentire la
 tracciabilità di ogni operazione di pagamento (andata a buon fine o
@@ -1512,7 +1519,7 @@ pagamento) così valorizzando i seguenti campi del giornale:
 
 -  *categoriaEvento* a “INTERNO”;
 
--  *identificativoErogatore* a “GENERAZIONE-RT”.
+*identificativoErogatore* a “GENERAZIONE-RT”.
 
 .. |image0| image:: media_ModelloDati/media/image1.png
    :width: 3.46528in
