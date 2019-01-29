@@ -989,7 +989,7 @@ Inoltre, un canale è definito dagli attributi di seguito descritti in
 paragrafi dedicati:
 
 Servizio
-^^^^^^^^
+''''''''
 
 La struttura descrive come verrà visualizzato all’Utilizzatore finale
 per selezionare il PSP sul sistema WISP:
@@ -1000,7 +1000,7 @@ per selezionare il PSP sul sistema WISP:
    400x128px.
 
 Informazioni dettaglio Servizio
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+'''''''''''''''''''''''''''''''
 
 -  *codiceLingua*: identifica la lingua utilizzata per le informazioni
    di dettaglio della presente struttura. Le lingue supportate dal
@@ -1025,14 +1025,14 @@ Informazioni dettaglio Servizio
    predisposto per cooperare con il Tavolo Operativo del NodoSPC.
 
 Plugin
-^^^^^^
+''''''
 
 La struttura permette al PSP di definire un set di parametri
 personalizzato da utilizzare per interpretare i parametri della redirect
 di risposta alla pagina di erogazione del servizio WISP vedi capitolo 9.
 
 Costi
-^^^^^
+'''''
 
 La struttura definisce la *policy* del calcolo delle commissioni che il
 sistema pagoPA deve applicare.
@@ -1057,7 +1057,7 @@ commissione:
    commissione in base alla fascia di prezzo.
 
 Acquirer
-^^^^^^^^
+''''''''
 
 L’\ *Acquirer* è un soggetto che ha instaurato un rapporto con un PSP
 aderente a pagoPA al fine di gestire le transazioni con le carte di
