@@ -4,12 +4,40 @@
 
 
 #############################################################
-Specifiche Attuative del Nodo dei Pagamenti-SPC ver. DEVELOP
+Specifiche Attuative del Nodo dei Pagamenti-SPC ver. 2.2 Beta
 #############################################################
 
 
 .. highlights::
-pagoPA è un sistema per rendere più semplici, sicuri e trasparenti tutti i pagamenti verso la Pubblica Amministrazione.
+   pagoPA è un sistema per rendere più semplici, sicuri e trasparenti tutti i pagamenti verso la Pubblica Amministrazione. 
+
+.. toctree::
+   :numbered:
+   :hidden:
+	
+   _docs/SANP_2.2_Sez1_Cap01_FunzionamentoGeneraleDelSistema.rst
+   _docs/SANP_2.2_Sez2_Cap02_GestionePosizioneDebitoria
+   _docs/SANP_2.2_Sez2_Cap03_ProcessoDiPagamentoEnte
+   _docs/SANP_2.2_Sez2_Cap04_ProcessoDiPagamentoPSP
+   _docs/SANP_2.2_Sez2_Cap05_FunzioniAccessorie
+   _docs/SANP_2.2_Sez2_Cap06_ComponentiTecnicheNodo
+   _docs/SANP_2.2_Sez3_Cap07_IntroduzioneSezIII
+   _docs/SANP_2.2_Sez3_Cap08_ModelloDati
+   _docs/SANP_2.2_Sez3_Cap09_PagamentoPressoEnte
+   _docs/SANP_2.2_Sez3_Cap10_PagamentoPressoPSP
+   _docs/SANP_2.2_Sez3_Cap11_Avvisatura
+   _docs/SANP_2.2_Sez3_Cap12_Backoffice
+   _docs/SANP_2.2_Sez3_Cap13_Ausiliarie
+   _docs/SANP_2.2_Sez4_Cap14_ProcessoAdesione
+   _docs/SANP_2.2_Sez4_Cap15_Attivazione
+   _docs/SANP_2.2_Sez4_Cap16_AttivazioneECDirettamenteConnesso
+   _docs/SANP_2.2_Sez4_Cap17_AttivazioneECIntermediato
+   _docs/SANP_2.2_Sez4_Cap18_AttivazionePSP
+   _docs/SANP_2.2_Sez4_Cap19_Adempimenti
+   _docs/SANP_2.2_Sez4_Cap20_UtilizzoMarchio
+   _docs/SANP_2.2_Sez4_Cap21_DisponibilitaServizi
+   _docs/SANP_2.2_Sez4_Cap22_LivelliServizio
+   _docs/SANP_2.2_Sez4_Cap23_Responsabilita
 
 
 
