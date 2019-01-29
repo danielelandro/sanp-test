@@ -380,7 +380,9 @@ successiva.
 
 |image5|
 
-**Figura** **4: Stati del pagamento** **
+**Figura** **4: Stati del pagamento**
+
+**
 **
 
 +-----------------------+-----------------------+-----------------------+
@@ -925,5 +927,5 @@ stessi *task*.
    :width: 4.67011in
    :height: 3.36667in
 .. |image5| image:: media_IntroduzioneSezIII/media/image5.png
-   :width: 3.06217in
-   :height: 7.83333in
+   :width: 3.04045in
+   :height: 7.77778in
