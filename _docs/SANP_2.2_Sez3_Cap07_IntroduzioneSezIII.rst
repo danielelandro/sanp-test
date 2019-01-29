@@ -351,7 +351,7 @@ appartenenza sono descritte nella tabella sottostante.
 |                       |                       | processi del sistema  |
 +-----------------------+-----------------------+-----------------------+
 
-**Tabella** **4: Descrizione delle categorie di errore**
+**Tabella** **3: Descrizione delle categorie di errore**
 
 Per gli errori che causano l’emanazione di un *faultBean* da parte del
 NodoSPC, in riferimento a ogni caso d’uso, saranno trattate le possibili
@@ -907,7 +907,7 @@ stessi *task*.
 |         |         |         |         | pagoPA  |         |         |
 +---------+---------+---------+---------+---------+---------+---------+
 
-**Tabella** **7: Quadro sinottico delle transazioni di stato**
+**Tabella** **5: Quadro sinottico delle transazioni di stato**
 
 .. |image0| image:: media_IntroduzioneSezIII/media/image1.png
    :width: 5.51119in
@@ -925,5 +925,5 @@ stessi *task*.
    :width: 4.67011in
    :height: 3.36667in
 .. |image5| image:: media_IntroduzioneSezIII/media/image5.png
-   :width: 3.00471in
-   :height: 7.66667in
+   :width: 3.06217in
+   :height: 7.83333in
