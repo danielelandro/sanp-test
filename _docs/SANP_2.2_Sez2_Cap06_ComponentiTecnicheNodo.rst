@@ -82,8 +82,8 @@ interoperabilità avviene nelle forme e nei metodi descritti nel
 documento collegato “Specifiche di Connessione al sistema pagoPA”,
 pubblicato sul sito istituzionale di AgID.
 
- Gestore della Porta di Dominio
--------------------------------
+Gestore della Porta di Dominio
+------------------------------
 
 Questa componente, deprecata e mantenuta per retro compatibilità, si
 occupa dello scambio dei messaggi da e verso SPC per il colloquio con
