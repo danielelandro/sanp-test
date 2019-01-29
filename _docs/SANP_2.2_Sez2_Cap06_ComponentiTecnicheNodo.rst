@@ -74,8 +74,8 @@ permettono:
 
 -  il mantenimento del sincronismo temporale.
 
-   2. .. rubric:: Gestore della Connessione
-         :name: gestore-della-connessione
+Gestore della Connessione
+-------------------------
 
 La connessione al NodoSPC in applicazione al vigente modello di
 interoperabilità avviene nelle forme e nei metodi descritti nel
@@ -118,8 +118,8 @@ titolo esemplificativo:
 
 -  mantenimento del sincronismo temporale.
 
-   4. .. rubric:: Interfaccia di Canale
-         :name: interfaccia-di-canale
+Interfaccia di Canale
+---------------------
 
 Le attività svolte da questa componente sono analoghe a quelle svolte
 dal gestore della Porta di Dominio per gli Enti Creditori, ma istanziate
@@ -157,8 +157,8 @@ Di seguito le principali attività svolte dalla componente:
 
 -  mantenimento del sincronismo temporale.
 
-   5. .. rubric:: Repository ricevute telematiche
-         :name: repository-ricevute-telematiche
+Repository ricevute telematiche
+-------------------------------
 
 Il *Repository* costituisce l’archivio in cui sono memorizzate tutte le
 ricevute telematiche processate dal NodoSPC e non ancora consegnate,
@@ -185,8 +185,8 @@ In questo caso:
       NodoSPC all’Ente Creditore per consentire di completare
       l’operazione di pagamento.
 
-   7. .. rubric:: Componente WISP
-         :name: componente-wisp
+Componente WISP
+---------------
 
 La componente “WISP” (*Wizard* Interattivo di Scelta del Prestatore di
 Servizi di Pagamento) consente all'utilizzatore finale di effettuare la
@@ -243,8 +243,8 @@ attraverso l'utilizzo di componenti del NodoSPC che consentono:
    -  notificare ai servizi di Cittadinanza Digitale gli avvisi digitali
          (predisposizione per funzionalità future).
 
-   10. .. rubric:: File Transfer sicuro
-          :name: file-transfer-sicuro
+File Transfer sicuro
+--------------------
 
 Il NodoSPC mette a disposizione dei soggetti aderenti una piattaforma
 *client-server* per il trasferimento sicuro dei dati in modalità *File
@@ -283,8 +283,8 @@ Le principali attività svolte dalla componente riguardano:
    -  la disponibilità di dati di sintesi (totali di tipo di operazione
       per stato, per intervallo temporale, ecc.).
 
-   12. .. rubric:: Componenti di utilità
-          :name: componenti-di-utilità
+Componenti di utilità
+---------------------
 
 Le componenti di utilità rappresentano un insieme di componenti “di
 servizio” invocate, in base alle necessità, dal *Workflow* Applicativo
@@ -351,8 +351,8 @@ Servizio, il soggetto ricevente ha l’obbligo:
 -  rendere disponibile un’evidenza dello stato del flusso a fronte di
       una eventuale situazione di blocco del flusso stesso.
 
-   16. .. rubric:: Servizi applicativi opzionali
-          :name: servizi-applicativi-opzionali
+Servizi applicativi opzionali
+-----------------------------
 
 Rientrano in questa tipologia le funzioni che il Servizio mette a
 disposizione dei soggetti appartenenti al Dominio e che possono da
