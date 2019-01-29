@@ -205,8 +205,8 @@ l’Utilizzatore finale potrà memorizzare gli strumenti di pagamento
 utilizzati, evitando di dover effettuare una nuova ricerca nelle
 occasioni successive.
 
-Componente Wrapper MyBank 
---------------------------
+Componente Wrapper MyBank
+-------------------------
 
 Nell'ambito del collegamento tra il NodoSPC ed il circuito *e-commerce*
 MyBank, la componente "Wrapper MyBank" si occupa di effettuare le
@@ -219,8 +219,8 @@ In tale contesto, le *Seller Bank* aderenti al NodoSPC sono tenute ad
 utilizzare le specifiche di interfacciamento della componente “Wrapper
 MyBank”.
 
-Componente per la gestione dell'avvisatura digitale in modalità push 
----------------------------------------------------------------------
+Componente per la gestione dell'avvisatura digitale in modalità push
+--------------------------------------------------------------------
 
 La gestione dell'avvisatura digitale in modalità *push* avviene
 attraverso l'utilizzo di componenti del NodoSPC che consentono:
