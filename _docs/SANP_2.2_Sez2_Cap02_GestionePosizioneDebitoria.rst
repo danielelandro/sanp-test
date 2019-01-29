@@ -114,7 +114,7 @@ momento della produzione di tale documento e quindi può essere soggetto
 a variazioni (in più o in meno) al momento in cui ne viene richiesto il
 pagamento da parte dell’utilizzatore finale, nel caso sia intervenuto un
 aggiornamento della posizione debitoria, purché tale possibilità sia
-stata effettivamente esplicitata in una avvertenza sull’avviso..
+stata effettivamente esplicitata in una avvertenza sull’avviso.
 
 La peculiarità di alcune postazioni messe a disposizione dai Prestatori
 di Servizi di Pagamento rende necessario automatizzare l’acquisizione
@@ -243,7 +243,7 @@ inviare al NodoSPC una nuova copia dell’avviso digitale con
 l’indicazione che si tratta di una cancellazione.
 
 Il processo di aggiornamento e annullamento dell’avviso digitale è
-analogo a quello della generazione (Figura 5).
+analogo a quello della generazione (**Figura 3**).
 
 Avvisatura digitale pull (verifica della posizione debitoria)
 -------------------------------------------------------------
@@ -287,8 +287,8 @@ Il processo segue i seguenti passi:
    Creditore attraverso il NodoSPC (*Task* T1.3.2 e T1.3.3)
 
 -  L’Ente Creditore predispone la lista delle Posizione Debitorie
-   relative all’utilizzatore finale (Task T1.3.4) e le inoltra al
-   Prestatore di Servizi di Pagamento attraverso il NodoSPC (Task
+   relative all’utilizzatore finale (*Task* T1.3.4) e le inoltra al
+   Prestatore di Servizi di Pagamento attraverso il NodoSPC (*Task*
    T1.3.5).
 
 -  Il Prestatore di servizi di Pagamento riceve la posizione debitoria

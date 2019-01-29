@@ -15,10 +15,10 @@ termini organizzativi, che informatici); le procedure di pagamento
 potranno essere più o meno strettamente integrate con i servizi cui
 fanno riferimento.
 
-Il diagramma di Figura 8 descrive il processo di pagamento attraverso
-l’Ente Creditore. Al fine di rendere tale diagramma immediatamente
-leggibile la descrizione del *workflow* è stata aggregata in
-sottoparagrafi secondo lo schema logico che segue (**Figura 1**).
+Il diagramma di **Figura 1** descrive il processo di pagamento
+attraverso l’Ente Creditore. Al fine di rendere tale diagramma
+immediatamente leggibile la descrizione del *workflow* è stata aggregata
+in sottoparagrafi secondo lo schema logico che segue.
 
 |image0|
 
