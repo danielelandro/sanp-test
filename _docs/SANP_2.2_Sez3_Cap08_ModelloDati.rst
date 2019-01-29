@@ -875,8 +875,8 @@ Inoltre, per la configurazione delle modalità di pagamento nel sistema
 pagoPA, il PSP produce il documento Catalogo Dati Informativi, come
 riportato nella sezione IV.
 
- Pubblicazione
-^^^^^^^^^^^^^^
+Pubblicazione
+^^^^^^^^^^^^^
 
 All’interno di questa struttura, il PSP specifica gli attributi comuni a
 tutti i servizi di pagamento che rende disponibili sul sistema:
