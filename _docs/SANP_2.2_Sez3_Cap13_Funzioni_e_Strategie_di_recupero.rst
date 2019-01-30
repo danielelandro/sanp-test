@@ -44,7 +44,7 @@ recapitata.
 |                                   | dagli utilizzatori finali o       |
 |                                   | riscontra la perdita di una o più |
 |                                   | RT                                |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Necessità di ripristino di una RT |
 +-----------------------------------+-----------------------------------+
 | Descrizione                       | L’EC sottomette la richiesta di   |
@@ -61,7 +61,7 @@ recapitata.
 **Figura** **2: Richiesta della copia di una RT**
 
 1. l’EC sottomette al NodoSPC la richiesta di ricevere una copia della
-      RT mediante la primitiva *nodoChiediCopiaRT;*
+      RT mediante la primitiva *nodoChiediCopiaRT*;
 
 **Caso OK**
 
@@ -71,20 +71,20 @@ recapitata.
 **Caso KO**
 
 3. il NodoSPC replica negativamente alla richiesta precedente fornendo
-      *response* KO alla primitiva di cui al punto 1 emanando un
-      *faultBean* il cui *faultBean.faultCode* è rappresentativo
-      dell’errore riscontrato; in particolare:
+   *response* KO alla primitiva di cui al punto 1 emanando un
+   *faultBean* il cui *faultBean.faultCode* è rappresentativo
+   dell’errore riscontrato; in particolare:
 
    -  PPT_SINTASSI_XSD: nel caso di errore di validazione della
-         richiesta
+      richiesta
 
    -  PPT_SINTASSI_EXTRAXSD: nel caso di errore di validazione della
-         SOAP *request*
+      SOAP *request*
 
    -  PPT_SEMANTICA: nel caso di errori semantici
 
    -  PPT_RT_SCONOSCIUTA: i parametri di input specificati nella
-         richiesta non consentono di trovare alcuna RT
+      richiesta non consentono di trovare alcuna RT
 
    -  PPT_RT_NONDOSPONIBILE: la RT richiesta non è disponibile.
 
@@ -99,7 +99,7 @@ RT.
 | Pre-Condizione                    | L’EC ha sottomesso al NodoSPC un  |
 |                                   | certo numero di RPT e non ha      |
 |                                   | ricevuto le RT                    |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Necessità di riconciliazione o    |
 |                                   | chiusura delle posizioni pendenti |
 +-----------------------------------+-----------------------------------+
@@ -142,7 +142,7 @@ Verifica dello stato di una RPT
 +-----------------------------------+-----------------------------------+
 | Pre-Condizione                    | L’EC ha sottomesso al NodoSPC una |
 |                                   | RPT                               |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | L’EC necessita di conoscere       |
 |                                   | l’evoluzione temporale di una     |
 |                                   | specifica RPT                     |
@@ -213,7 +213,7 @@ Richiesta Catalogo Dati Informativi
 
 +-----------------------------------+-----------------------------------+
 | Pre-Condizione                    | n.a.                              |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | L’EC necessita di conoscere il    |
 |                                   | Catalogo Dati Informativi         |
 |                                   | elaborato dal NodoSPC per         |
@@ -277,10 +277,10 @@ L’evoluzione temporale è la seguente:
    -  PPT_SEMANTICA: Errore semantico
 
    -  PPT_INFORMATIVAPSP_PRESENTE: il NodoSPC ha già depositato il file
-         XML richiesto nella directory assegnata all’EC sulla componente
-         SFTP_NodSPC
+      XML richiesto nella directory assegnata all’EC sulla componente
+      SFTP_NodSPC
 
-   -  PPT_SYSTEM_ERROR: errore nella generazione del file XML richiesto
+   -  PPT_SYSTEM_ERROR: errore nella generazione del file XML richiesto.
 
 Funzioni ausiliarie per il PSP
 ------------------------------
@@ -296,7 +296,7 @@ utilizzare nell’ambito del Pagamento Spontaneo presso i PSP.
 | Pre-Condizione                    | Il PSP decide di supportare i     |
 |                                   | pagamenti spontanei pressi i      |
 |                                   | propri sportelli                  |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Necessità di conoscere i servizi  |
 |                                   | offerti dalle PA                  |
 +-----------------------------------+-----------------------------------+
@@ -344,7 +344,7 @@ aggiornamenti
 | Pre-Condizione                    | Il PSP ha (o meno)                |
 |                                   | precedentemente comunicato al     |
 |                                   | Nodo il Catalogo Dati Informativi |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Necessità del PSP di aggiornare   |
 |                                   | il proprio Catalogo               |
 +-----------------------------------+-----------------------------------+
@@ -394,7 +394,7 @@ Richiesta informativa PA
 +-----------------------------------+-----------------------------------+
 | Pre-Condizione                    | L’EC ha sottomesso al Nodo la     |
 |                                   | Tabella delle Controparti         |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Il PSP necessita di conoscere la  |
 |                                   | disponibilità dei servizi offerti |
 |                                   | dagli EC e i dati ad essi         |
@@ -440,7 +440,7 @@ Richiesta Stato Elaborazione Flusso di Rendicontazione
 |                                   | di rendicontazione al NodoSPC     |
 |                                   | (mediante SOAP *request* o        |
 |                                   | componente SFTP_NodoSPC)          |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Il PSP necessita di conoscere lo  |
 |                                   | stato di elaborazione del file    |
 |                                   | XML di rendicontazione            |
@@ -496,7 +496,7 @@ Strategie di retry per il recapito della RT
 
 +-----------------------------------+-----------------------------------+
 | Pre-Condizione                    | Il pagamento è nello stato RT-PSP |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Il PSP ha tentato l’invio di una  |
 |                                   | RT e                              |
 |                                   |                                   |
@@ -553,19 +553,19 @@ Strategie di retry per il recapito della RT
    massimo di 5 tentativi attenendosi scrupolosamente alla seguente
    schedulazione
 
-+-----------+------------+
-| Tentativo | Attesa     |
-+===========+============+
-| 1         | 5 secondi  |
-+-----------+------------+
-| 2         | 10 secondi |
-+-----------+------------+
-| 3         | 20 secondi |
-+-----------+------------+
-| 4         | 40 secondi |
-+-----------+------------+
-| 5         | 80 secondi |
-+-----------+------------+
++---------------+------------+
+| **Tentativo** | **Attesa** |
++===============+============+
+| 1             | 5 secondi  |
++---------------+------------+
+| 2             | 10 secondi |
++---------------+------------+
+| 3             | 20 secondi |
++---------------+------------+
+| 4             | 40 secondi |
++---------------+------------+
+| 5             | 80 secondi |
++---------------+------------+
 
 **Alternativamente**
 
@@ -592,11 +592,9 @@ Strategie di retry per il recapito della RT
 
 11. Il NodoSPC valida la RT prelevata precedentemente
 
-..
+**Alternativamente**
 
-   **Alternativamente**
-
-   In caso di RT corretta
+In caso di RT corretta
 
 12. Il NodoSPC invia conferma al PSP dell’avvenuta ricezione della RT
     mediante la primitiva pspInviaAckRT. Il mesaggio di ackRT riporterà
@@ -626,7 +624,7 @@ Richiesta **avanzamento** RPT
 +-----------------------------------+-----------------------------------+
 | Pre-Condizione                    | Il NodoSPC ha sottomesso una RPT  |
 |                                   | o un carrello di RPT al PSP       |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Il NodoSPC necessita di           |
 |                                   | verificare lo stato di            |
 |                                   | avanzamento di una RTP o di un    |
@@ -639,7 +637,7 @@ Richiesta **avanzamento** RPT
 |                                   | RPT o del carrello di RPT         |
 +-----------------------------------+-----------------------------------+
 
-**Tabella** **10: Richiesta** avanzamento **RPT**
+**Tabella** **10: Richiesta avanzamento RPT**
 
 |pspChiediAvanzamentoRPT|
 
@@ -672,7 +670,7 @@ Richiesta di avanzamento RT
 +-----------------------------------+-----------------------------------+
 | Pre-Condizione                    | Il NodoSPC verifica lo stato      |
 |                                   | avanzamento di una RT             |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | Il NodoSPC necessita di           |
 |                                   | verificare lo stato di            |
 |                                   | avanzamento della produzione      |
@@ -713,10 +711,10 @@ Richiesta di avanzamento RT
    *faultBean.faultCode* è rappresentativo dell’errore riscontrato; in
    particolare:
 
--  CANALE_RT_SCONOSCIUTA: non è stata trovata la RT per la quale si
-   richiede di conoscere lo stato di avanzamento
+   -  CANALE_RT_SCONOSCIUTA: non è stata trovata la RT per la quale si
+      richiede di conoscere lo stato di avanzamento
 
--  CANALE_RT_RIFIUTATA_EC: la RT è stata rifiutata dall’EC.
+   -  CANALE_RT_RIFIUTATA_EC: la RT è stata rifiutata dall’EC.
 
 .. |Intro| image:: media_Ausiliarie/media/image1.png
    :width: 6.68681in

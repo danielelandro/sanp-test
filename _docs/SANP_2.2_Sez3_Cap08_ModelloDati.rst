@@ -1519,7 +1519,7 @@ pagamento) così valorizzando i seguenti campi del giornale:
 
 -  *categoriaEvento* a “INTERNO”;
 
-*identificativoErogatore* a “GENERAZIONE-RT”.
+-  *identificativoErogatore* a “GENERAZIONE-RT”.
 
 .. |image0| image:: media_ModelloDati/media/image1.png
    :width: 3.46528in
