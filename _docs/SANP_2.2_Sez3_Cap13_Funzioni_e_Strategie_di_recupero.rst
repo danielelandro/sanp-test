@@ -476,22 +476,20 @@ Rendicontazione**
    rendicontazione precedentemente inviato valorizzando il parametro di
    input *identificaficativoFlusso*
 
-..
-
-   **Caso OK**
+**Caso OK**
 
 2. il NodoSPC replica positivamente alla primitiva precedente fornendo
    lo stato di elaborazione del flusso XML; in particolare:
 
-   -  FLUSSO_IN_ELABORAZIONE: il flusso XML è in fase di
+   a. FLUSSO_IN_ELABORAZIONE: il flusso XML è in fase di
       elaborazione/storicizzazione sulle basi di dati del NodoSPC
 
-   -  FLUSSO_ELABORATO: Il flusso è stato correttamente elaborato e
+   b. FLUSSO_ELABORATO: Il flusso è stato correttamente elaborato e
       storicizzato dal NodoSPC
 
-   -  FLUSSO_SCONOSCIUTO: il Nodo non conosce il flusso richiesto
+   c. FLUSSO_SCONOSCIUTO: il Nodo non conosce il flusso richiesto
 
-   -  FLUSSO_DUPLICATO: il Nodo rileva che il flusso inviato è già stato
+   d. FLUSSO_DUPLICATO: il Nodo rileva che il flusso inviato è già stato
       sottomesso.
 
 **Caso KO**
@@ -540,16 +538,16 @@ Strategie di retry per il recapito della RT
 **Figura** **10: meccanismi di recovery per RT PUSH**
 
 1. Il PSP sottomette al NodoSPC la RT attraverso la primitiva
-   *nodoInviaRT*:
+      *nodoInviaRT*:
 
 ..
 
-   alternativamente
+   Alternativamente
 
    **EC in timeout**
 
 2. Il NodoSPC replica emanando un *faultBean* il cui
-   *faultBean.faultCode* è pari a PPT_STAZIONE_INT_PA_TIMEOUT
+      *faultBean.faultCode* è pari a PPT_STAZIONE_INT_PA_TIMEOUT
 
 ..
 
@@ -558,8 +556,8 @@ Strategie di retry per il recapito della RT
 3. Il PSP non riceve alcuna risposta alla primitiva precedente
 
 4. Il PSP ritenta nuovamente l’invio della RT in modalità PUSH per un
-   massimo di 5 tentativi attenendosi scrupolosamente alla seguente
-   schedulazione
+      massimo di 5 tentativi attenendosi scrupolosamente alla seguente
+      schedulazione
 
 +---------------+------------+
 | **Tentativo** | **Attesa** |
@@ -575,9 +573,11 @@ Strategie di retry per il recapito della RT
 | 5             | 80 secondi |
 +---------------+------------+
 
-**Alternativamente**
+..
 
-*Response OK alla primitiva*
+   **Alternativamente**
+
+   *Response OK alla primitiva*
 
 5. Il NodoSPC inoltra *response* positiva alla primitiva di cui al punto
    precedente
@@ -612,9 +612,7 @@ In caso di RT corretta
 
 14. Il PSP replica fornendo esito OK alla primitiva di cui al punto 14
 
-..
-
-   In caso di RT non corretta
+In caso di RT non corretta
 
 15. Il NodoSPC invia notifica al PSP il rifiuto della RT mediante la
     primitiva *pspInviaAckRT*. Il mesaggio di *ackRT* riporterà nel dato
