@@ -1,8 +1,8 @@
-12. .. rubric:: Back-office
-       :name: back-office
+Back-office
+===========
 
-    1. .. rubric:: Revoca e storno
-          :name: revoca-e-storno
+Revoca e storno
+===============
 
 Il NodoSPC mette a disposizione degli EC e dei PSP aderenti,
 rispettivamente, i processi di storno e revoca di pagamento, da
@@ -107,7 +107,7 @@ successiva:
 dei processi di revoca e storno**
 
 Processo di Revoca per Annullo Tecnico
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+======================================
 
 Il processo di revoca di una ricevuta telematica per Annullo Tecnico
 consente il rientro da situazioni anomale o di incoerenza nello stato di
@@ -216,7 +216,7 @@ andrà a sovrascrivere quella revocata. In questo caso il parametro
 impostato a 1.
 
 Processo di Revoca di una Ricevuta Telematica per charge-back
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=============================================================
 
 Il processo di revoca per *charge-back* di una RT è innescato dal PSP
 solo verso l’EC che aderisce al servizio e sarà realizzabile solo per i
@@ -321,8 +321,8 @@ charge-back**
 13. il PSP notifica l’Utilizzatore finale circa l’esito positivo della
     procedura di revoca della ricevuta telematica.
 
-    3. .. rubric:: Processo di Storno di un pagamento
-          :name: processo-di-storno-di-un-pagamento
+Processo di Storno di un pagamento
+==================================
 
 Il processo di storno di un pagamento, attivato dall’EC, è innescato
 quando l’Utilizzatore finale richieda a vario titolo la cancellazione di
@@ -401,15 +401,15 @@ pagamento**
 14. l’EC informa l’Utilizzatore finale in merito all’esito delle
     operazioni di storno.
 
-    2. .. rubric:: Riconciliazione
-          :name: riconciliazione
+Riconciliazione
+===============
 
 All’interno di questo paragrafo vengono descritti i casi d’uso che
 descrivono il processo contabile operato dall’Ente Creditore al fine di
 riconciliare i pagamenti effettuati dall’Utilizzatore finale.
 
 Attori del processo di Riconciliazione Contabile e casi d’uso
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=============================================================
 
 Gli attori coinvolti nel processo di riconciliazione sono i seguenti:
 
@@ -426,8 +426,8 @@ Gli attori coinvolti nel processo di riconciliazione sono i seguenti:
    destinatario del flusso di riversamento SCT e notifica all’EC
    l’avvenuto incasso su sistemi esterni a pagoPA
 
-   5. .. rubric:: Worflow di Riconciliazione
-         :name: worflow-di-riconciliazione
+Worflow di Riconciliazione
+==========================
 
 Il processo di riconciliazione comporta il seguente *workflow* dove
 saranno utilizzati i seguenti termini:
@@ -631,8 +631,8 @@ Sono possibili i seguenti scenari:
     rendicontazione e delle RT archiviate, effettua la riconciliazione
     contabile.
 
-    6. .. rubric:: Motore di Riconciliazione
-          :name: motore-di-riconciliazione
+Motore di Riconciliazione
+=========================
 
 L’obiettivo del presente paragrafo è quello di tratteggiare in termini
 essenziali il modello concettuale di un algoritmo (il Motore di
@@ -927,7 +927,7 @@ aderente al NodoSPC:
 **Tabella** **8: Motore di Riconciliazione**
 
 Gestione degli errori 
-~~~~~~~~~~~~~~~~~~~~~~
+======================
 
 Il paragrafo mostra le strategie di risoluzione per gli errori che
 possono verificarsi durante l’esecuzione del processo di quadratura
@@ -987,11 +987,13 @@ dal FDR nel caso di riversamento singolo o cumulativo, rispettivamente.
 In tale circostanza la compensazione avviene in modalità manuale da
 concordare tra le controparti attraverso il tavolo operativo.
 
-3. .. rubric:: Gestione degli errori
-      :name: gestione-degli-errori-1
+.. _gestione-degli-errori-1:
 
-   8. .. rubric:: Gestione degli errori di revoca
-         :name: gestione-degli-errori-di-revoca
+Gestione degli errori
+=====================
+
+Gestione degli errori di revoca 
+================================
 
 Il paragrafo mostra i casi di errore che si possono verificare durante
 il processo di richiesta di revoca di una Ricevuta Telematica, sia nel
@@ -1281,7 +1283,7 @@ risoluzione dell’anomalia
 dall'EC**
 
 Gestione degli errori di storno 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================
 
 Il paragrafo mostra i casi di errore che si possono verificare durante
 il processo di storno di un pagamento. Con assoluta generalità si
@@ -1701,7 +1703,7 @@ oppure
 **Tabella** **18: strategia di risoluzione**
 
 Gestione degli errori di riconciliazione 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=========================================
 
 Il paragrafo descrive la gestione degli errori che possono verificarsi
 durante l’esercizio del processo di riconciliazione contabile. In
