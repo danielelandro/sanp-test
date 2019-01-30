@@ -215,8 +215,8 @@ andrà a sovrascrivere quella revocata. In questo caso il parametro
 *Forzacontrollosegno* nella SOAP *request* *nodoInviaRT* deve essere
 impostato a 1.
 
-Processo di Revoca di una Ricevuta Telematica per *charge-back*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Processo di Revoca di una Ricevuta Telematica per charge-back
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Il processo di revoca per *charge-back* di una RT è innescato dal PSP
 solo verso l’EC che aderisce al servizio e sarà realizzabile solo per i
@@ -426,7 +426,7 @@ Gli attori coinvolti nel processo di riconciliazione sono i seguenti:
    destinatario del flusso di riversamento SCT e notifica all’EC
    l’avvenuto incasso su sistemi esterni a pagoPA
 
-   5. .. rubric:: *Worflow* di Riconciliazione
+   5. .. rubric:: Worflow di Riconciliazione
          :name: worflow-di-riconciliazione
 
 Il processo di riconciliazione comporta il seguente *workflow* dove
@@ -631,7 +631,7 @@ Sono possibili i seguenti scenari:
     rendicontazione e delle RT archiviate, effettua la riconciliazione
     contabile.
 
-    6. .. rubric:: *Motore di Riconciliazione*
+    6. .. rubric:: Motore di Riconciliazione
           :name: motore-di-riconciliazione
 
 L’obiettivo del presente paragrafo è quello di tratteggiare in termini
@@ -926,8 +926,8 @@ aderente al NodoSPC:
 
 **Tabella** **8: Motore di Riconciliazione**
 
-*Gestione degli errori*
-~~~~~~~~~~~~~~~~~~~~~~~
+Gestione degli errori 
+~~~~~~~~~~~~~~~~~~~~~~
 
 Il paragrafo mostra le strategie di risoluzione per gli errori che
 possono verificarsi durante l’esecuzione del processo di quadratura
