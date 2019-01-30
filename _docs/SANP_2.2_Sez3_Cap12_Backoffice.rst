@@ -18,8 +18,8 @@ seguente.
 
 |info|
 
-Figura XX: Attori coinvolti nell'innesco dei processi di revoca e storno
-di una RT
+**Figura** **1: Attori coinvolti nell'innesco dei processi di revoca e
+storno di una RT**
 
 +--------------+-----------------+
 | **Processo** | **Innesco**     |
@@ -29,8 +29,8 @@ di una RT
 | Storno       | Avviato dall’EC |
 +--------------+-----------------+
 
-Tabella XX: Soggetti che istanziano i processi di Revoca e Storno di un
-pagamento
+**Tabella** **1: Soggetti che istanziano i processi di Revoca e Storno
+di un pagamento**
 
 Il processo di revoca può essere a sua volta diversificato sulla base
 delle motivazioni che ne determinano l’innesco, come da tabella
@@ -103,8 +103,8 @@ successiva:
 |                       |                       | tale funzionalità     |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Descrizione sintetica delle motivazioni per l'innesco dei
-processi di revoca e storno
+**Tabella** **2: Descrizione sintetica delle motivazioni per l'innesco
+dei processi di revoca e storno**
 
 Processo di Revoca per Annullo Tecnico
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -164,14 +164,14 @@ nella tabella successiva.
 |                                   |    stato *Pagamento_revocato*     |
 +-----------------------------------+-----------------------------------+
 
-Tabella XX: Caso d'uso del processo di revoca per annullo tecnico
+**Tabella** **3: Caso d'uso del processo di revoca per annullo tecnico**
 
 L’evoluzione temporale del processo di revoca è il seguente:
 
 |C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\SD_Annullo_Tecnico.png|
 
-**Figura XX: Diagramma di sequenza del processo di revoca di una RT per
-Annullo Tecnico**
+**Figura** **2: Diagramma di sequenza del processo di revoca di una RT
+per Annullo Tecnico**
 
 1.  il PSP compone il documento XML per la richiesta di revoca e lo
     sottomette all’EC attraverso il NodoSPC mediante la primitiva
@@ -266,8 +266,8 @@ risulti pagata. Il caso d’uso nominale è così descritto:
 |                                   |    stato *Pagamento Revocato*     |
 +-----------------------------------+-----------------------------------+
 
-Tabella XX: Scenario d'uso del processo di revoca di una RT per
-*charge-back*
+**Tabella** **4: Scenario d'uso del processo di revoca di una RT per
+charge-back**
 
 Al pari dei casi d’uso riportati nei capitoli precedenti, l’evoluzione
 temporale e le primitive coinvolte nel processo di revoca sono riportate
@@ -277,8 +277,8 @@ esito positivo (esito: OK come parametro di *output*).
 
 |C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\SD_ChargeBack.png|
 
-Figura XX: Diagramma di sequenza del processo di revoca per
-*charge-back*
+**Figura** **3: Diagramma di sequenza del processo di revoca per
+charge-back**
 
 1.  l’Utilizzatore finale richiede al PSP attestante il pagamento la
     revoca della RT per *charge-back*;
@@ -356,11 +356,12 @@ l’evoluzione temporale sono mostrate nella figura successiva.
 |                                   |    stato RT Stornata              |
 +-----------------------------------+-----------------------------------+
 
-Tabella XX: Caso d'uso del processo di storno di un pagamento
+**Tabella** **5: Caso d'uso del processo di storno di un pagamento**
 
 |image3|
 
-Tabella XX: Evoluzione temporale del processo di storno di un pagamento
+**Tabella** **6: Evoluzione temporale del processo di storno di un
+pagamento**
 
 1.  l’Utilizzatore finale richiede lo storno di un pagamento effettuato
     all’EC;
@@ -488,12 +489,14 @@ saranno utilizzati i seguenti termini:
 |                                   | *Pagamento Rendicontato*          |
 +-----------------------------------+-----------------------------------+
 
+**Tabella** **7: Worflow di Riconciliazione**
+
 L’evoluzione temporale è la seguente:
 
 |image4|
 
-Figura XX: Diagramma di sequenza del processo di riconciliazione
-contabile
+**Figura** **4: Diagramma di sequenza del processo di riconciliazione
+contabile**
 
 1. il PSP accredita con SCT il conto di un EC. L’importo dello SCT può
    essere pari all’importo di un singolo pagamento ovvero pari
@@ -921,6 +924,8 @@ aderente al NodoSPC:
 |                 |                 |    trasferito.  |                 |
 +-----------------+-----------------+-----------------+-----------------+
 
+**Tabella** **8: Motore di Riconciliazione**
+
 *Gestione degli errori*
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1018,9 +1023,12 @@ processo di revoca del pagamento.
 |                                   | Revoca Rifiutata                  |
 +-----------------------------------+-----------------------------------+
 
+**Tabella** **9: RR Rifiutata dal NodoSPC**
+
 |SD_ERR_nodoInviaRichiestaRevoca|
 
-Figura XX: Diagramma di sequenza nel caso di RR rifiutata dal Nodo
+**Figura** **5: Diagramma di sequenza nel caso di RR rifiutata dal
+Nodo**
 
 L’evoluzione temporale è la seguente:
 
@@ -1086,7 +1094,8 @@ Le azioni di controllo suggerite sono riportate nella Tabella successiva
 |                       |                       | DE*)                  |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Strategie di risoluzione nel caso di RR rifiutata dal Nodo
+**Tabella** **10: Strategie di risoluzione nel caso di RR rifiutata dal
+Nodo**
 
 **RR rifiutata dall’EC**
 
@@ -1112,8 +1121,8 @@ Tabella XX: Strategie di risoluzione nel caso di RR rifiutata dal Nodo
 
 |C:\Users\gianni.papetti\AppData\Local\Microsoft\Windows\INetCache\Content.Word\SD_ERR_paaInviaRichiestaRevoca.png|
 
-Figura XX: Diagramma di sequenza per il caso di errore di RR rifiutata
-dall'EC
+**Figura** **6: Diagramma di sequenza per il caso di errore di RR
+rifiutata dall'EC**
 
 L’evoluzione temporale del caso d’uso è la seguente (dal punto 4):
 
@@ -1143,7 +1152,8 @@ risoluzione dell’anomalia.
 |                       | PAA                   | Tavolo Operativo      |
 +-----------------------+-----------------------+-----------------------+
 
-Figura XX: Strategia di risoluzione dello scenario RR rifiutata dall'EC
+**Tabella** **11: Strategia di risoluzione dello scenario RR rifiutata
+dall'EC**
 
 **ER Rifiutata dal NodoSPC**
 
@@ -1166,8 +1176,8 @@ Figura XX: Strategia di risoluzione dello scenario RR rifiutata dall'EC
 
 |SD_ERR_nodoInviaRispostaRevoca|
 
-Figura XX: Diagramma di sequenza per lo scenario di ER rifiutata dal
-Nodo
+**Figura** **7: Diagramma di sequenza per lo scenario di ER rifiutata
+dal Nodo**
 
 L’evoluzione temporale dello scenario è il seguente­:
 
@@ -1219,8 +1229,8 @@ risoluzione delle anomalie
 |                       |                       | documento XML RR      |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Azioni di controllo per la risoluzione dello scenario di ER
-rifiutata dal Nodo
+**Tabella** **12: Azioni di controllo per la risoluzione dello scenario
+di ER rifiutata dal Nodo**
 
 **ER Rifiutata dal PSP**
 
@@ -1238,7 +1248,7 @@ rifiutata dal Nodo
 
 |SD_ERR_nodoInviaRispostaRevoca_ERR_PSP|
 
-Figura XX: Diagramma di sequenza per il caso ER rifiutata dal PSP
+**Figura** **8: Diagramma di sequenza per il caso ER rifiutata dal PSP**
 
 L’evoluzione dello scenario in esame è il seguente (si assume
 validazione positiva da parte del NodoSPC, punto 3)
@@ -1267,7 +1277,8 @@ risoluzione dell’anomalia
 |                       | PAA                   | Tavolo Operativo      |
 +-----------------------+-----------------------+-----------------------+
 
-Figura XX: Strategia di risoluzione dello scenario RR rifiutata dall'EC
+**Tabella** **13: Strategia di risoluzione dello scenario RR rifiutata
+dall'EC**
 
 Gestione degli errori di storno 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1300,8 +1311,8 @@ l’esito positivo o meno del processo di storno del pagamento.
 
 |image9|
 
-Tabella XX: Diagramma di sequenza dello scenario richiesta storno
-rifiutata dal Nodo
+**Figura** **9: Diagramma di sequenza dello scenario richiesta storno
+rifiutata dal Nodo**
 
 L’evoluzione temporale è la seguente:
 
@@ -1378,8 +1389,8 @@ risoluzione delle anomalie.
 |                       |                       | DE*)                  |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Azioni di controllo suggerite per lo scenario Richiesta
-Storno rifiutata dal Nodo
+**Tabella** **14: Azioni di controllo suggerite per lo scenario
+Richiesta Storno rifiutata dal Nodo**
 
 **Richiesta Storno Rifiutata dal PSP**
 
@@ -1397,8 +1408,8 @@ Storno rifiutata dal Nodo
 
 |SD_ERR_RICHIESTA_STORNO_KO_PSP|
 
-Figura XX: Evoluzione temporale dello scenario richiesta storno
-rifiutata dal PSP
+**Figura** **10: Evoluzione temporale dello scenario richiesta storno
+rifiutata dal PSP**
 
 L’evoluzione temporale è la seguente (dal punto 4):
 
@@ -1438,8 +1449,8 @@ risoluzione dell’anomalia.
 |                       |                       | Tavolo Operativo      |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Azioni di controllo suggerite per lo scenario Richiesta
-Storno rifiutata dal PSP
+**Tabella** **15: Azioni di controllo suggerite per lo scenario
+Richiesta Storno rifiutata dal PSP**
 
 **Esito Storno Rifiutato dal Nodo**
 
@@ -1458,7 +1469,7 @@ Storno rifiutata dal PSP
 
 |SD_ERR_ESITO_STORNO_KO_NODO|
 
-Figura XX: Scenario Esito Storno rifiutato dal Nodo
+**Figura** **11: Scenario Esito Storno rifiutato dal Nodo**
 
 L’evoluzione temporale è la seguente:
 
@@ -1532,7 +1543,8 @@ risoluzione delle anomalie.
 |                       |                       | DE*)                  |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Strategie di risoluzione per il caso ER rifiutata dal Nodo
+**Tabella** **16: Strategie di risoluzione per il caso ER rifiutata dal
+Nodo**
 
 **Esito Storno rifiutato dall’EC**
 
@@ -1551,7 +1563,7 @@ Tabella XX: Strategie di risoluzione per il caso ER rifiutata dal Nodo
 
 |SD_ERR_ESITO_STORNO_KO_EC|
 
-Figura XX: Scenario Esito Storno rifiutato da EC
+**Figura** **12: Scenario Esito Storno rifiutato da EC**
 
 L’evoluzione temporale dello scenario è il seguente (dal punto 4):
 
@@ -1585,7 +1597,8 @@ risoluzione delle anomalie
 |                       | PAA                   | Tavolo Operativo      |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Strategie di risoluzione per il caso ER rifiutata dall'EC
+**Tabella** **17: Strategie di risoluzione per il caso ER rifiutata
+dall'EC**
 
 **ER Mancante per timeout delle controparti**
 
@@ -1616,8 +1629,8 @@ caso in cui le parti riscontrassero fenomeni di timeout.
 
 |SD_ERR_ESITO_STORNO_TIMEOUT|
 
-Figura XX: Evoluzione temporale dello scenario Esito Storno mancate per
-timeout
+**Figura** **13: Evoluzione temporale dello scenario Esito Storno
+mancate per timeout**
 
 L’evoluzione temporale è la seguente:
 
@@ -1685,7 +1698,7 @@ oppure
 |                       | *response*            |                       |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: XX
+**Tabella** **18: strategia di risoluzione**
 
 Gestione degli errori di riconciliazione 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1754,7 +1767,8 @@ successiva:
 
 |SD_ERR_FLUSSO_KO_NODO|
 
-Figura XX: Evoluzione temporale dello scenario flusso rifiutato dal Nodo
+**Figura** **14: Evoluzione temporale dello scenario flusso rifiutato
+dal Nodo**
 
 L’evoluzione temporale dello scenario è la seguente:
 
@@ -1846,8 +1860,8 @@ successiva:
 |                       |                       | DE*)                  |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Strategia di risoluzione dello scenario Flusso rifiutato dal
-Nodo
+**Tabella** **19: Strategia di risoluzione dello scenario Flusso
+rifiutato dal Nodo**
 
 **Timeout invio flusso di rendicontazione**
 
@@ -1873,7 +1887,7 @@ L’evoluzione temporale è la seguente:
 
 |image15|
 
-Figura XX: XX
+**Figura** **15: Timeout invio flusso di rendicontazione**
 
 1. il PSP accredita con SCT il conto dell’EC per l’importo delle somme
    incassate (l’SCT contiene l’indicazione del flusso di
@@ -1956,7 +1970,8 @@ Figura XX: XX
 
 |SD_ERR_RICHIESTA_FLUSSI_KO|
 
-Figura XX: XX
+**Figura** **16: Richiesta lista flussi di rendicontazione rifiutata dal
+NodoSPC**
 
 L’evoluzione temporale dello scenario è la seguente:
 
@@ -1988,8 +2003,8 @@ L’evoluzione temporale dello scenario è la seguente:
 |                       |                       | nella SOAP *request*  |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: Strategia di risoluzione dello scenario richiesta lista
-flussi rifiutata dal Nodo
+**Tabella** **20: Strategia di risoluzione dello scenario richiesta
+lista flussi rifiutata dal Nodo**
 
 **Richiesta Flusso Rifiutata dal Nodo / Nessun flusso presente**
 
@@ -2008,8 +2023,8 @@ flussi rifiutata dal Nodo
 
 |SD_ERR_RICHIESTA_FLUSSO_KO|
 
-Figura XX: Evoluzione temporale dello scenario richiesta Flusso
-rifiutata dal Nodo / Flusso mancate
+**Figura** **17: Evoluzione temporale dello scenario richiesta Flusso
+rifiutata dal Nodo / Flusso mancate**
 
 L’evoluzione temporale dello scenario è la seguente:
 
@@ -2064,7 +2079,8 @@ L’evoluzione temporale dello scenario è la seguente:
 |                       |                       | il Tavolo Operativo   |
 +-----------------------+-----------------------+-----------------------+
 
-Tabella XX: XX
+**Tabella** **21: Richiesta Flusso Rifiutata dal Nodo / Nessun flusso
+presente**
 
 .. [1]
    Attività da considerarsi solo nel caso di Revoca per Charge-Back
@@ -2082,8 +2098,8 @@ Tabella XX: XX
    :width: 6.69306in
    :height: 3.82492in
 .. |C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\SD_ChargeBack.png| image:: media_Backoffice/media/image3.png
-   :width: 6.69306in
-   :height: 4.01233in
+   :width: 6.58106in
+   :height: 3.9452in
 .. |image3| image:: media_Backoffice/media/image4.png
    :width: 5in
    :height: 2.8125in
@@ -2109,8 +2125,8 @@ Tabella XX: XX
    :width: 6.68681in
    :height: 2.77361in
 .. |SD_ERR_ESITO_STORNO_KO_NODO| image:: media_Backoffice/media/image12.png
-   :width: 5.60903in
-   :height: 3.17361in
+   :width: 5.35845in
+   :height: 3.03183in
 .. |SD_ERR_ESITO_STORNO_KO_EC| image:: media_Backoffice/media/image13.png
    :width: 6.69583in
    :height: 3.26944in
