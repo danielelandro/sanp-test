@@ -1,5 +1,5 @@
-Funzioni e strategie di recupero
-================================
+Funzioni e strategie di recupero 13
+===================================
 
 Scenari, casi d’uso e attori
 ----------------------------
@@ -490,7 +490,7 @@ Caso KO
 3. Il NodoSPC il NodoSPC replica con esito KO emanando un *faultBean* il
    cui *faultBean*.\ *faultCode* è PPT_SEMANTICA.
 
-Strategie di retry per il recapito della RT 
+Strategie di retry per il recapito della RT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-----------------------------------+-----------------------------------+
