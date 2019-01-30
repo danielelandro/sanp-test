@@ -134,42 +134,42 @@ segue:
    b. Proporre ad AgID una data di inizio dei test al fine di coordinare
       le attività previste;
 
-   c. Configurati gli IBAN di Collaudo ed ultimati i test con il
-      supporto di AgID, il RT deve compilare il “Verbale di Collaudo” e
-      rimanere in attesa che AgID lo validi per chiudere formalmente la
-      fase di Collaudo;
+3. Configurati gli IBAN di Collaudo ed ultimati i test con il supporto
+   di AgID, il RT deve compilare il “Verbale di Collaudo” e rimanere in
+   attesa che AgID lo validi per chiudere formalmente la fase di
+   Collaudo;
 
-3. Terminata la fase di Collaudo (3.c) oppure avendo deciso di non
+4. Terminata la fase di Collaudo (3.c) oppure avendo deciso di non
    coinvolgere AgID in tale fase, il RT esprime la volontà di procedere
    o meno con l’esecuzione dei test previsti in ambiente di Esercizio
    con il supporto del personale AgID. Se decide di eseguire i test
    deve:
 
-   d. Fornire gli IBAN di accredito da utilizzare in ambiente di
+   c. Fornire gli IBAN di accredito da utilizzare in ambiente di
       Esercizio (ne potrebbe inserire di nuovi o utilizzare IBAN già
       attivi per quell’Ente);
 
-   e. Proporre ad AgID una data di inizio dei test al fine di coordinare
+   d. Proporre ad AgID una data di inizio dei test al fine di coordinare
       le attività previste;
 
-   f. Configurati gli IBAN in fase di Pre-Esercizio ed ultimati i test
+   e. Configurati gli IBAN in fase di Pre-Esercizio ed ultimati i test
       con il supporto di AgID, il RT deve compilare il “Verbale di
       Pre-Esercizio” e rimanere in attesa che AgID lo validi per
       chiudere le attività di Pre-Esercizio.
 
-4. Ultimata la fase di Pre-Esercizio oppure avendo deciso di non
+5. Ultimata la fase di Pre-Esercizio oppure avendo deciso di non
    coinvolgere AgID in tale fase, il RT deve compilare il documento di
    manleva affinchè AgID lo possa validare e chiudere formalmente la
    fase di Pre-Esercizio;
 
-5. Al fine di completare la procedura di avvio in esercizio dell'Ente
+6. Al fine di completare la procedura di avvio in esercizio dell'Ente
    Creditore il RT deve:
 
-   g. Fornire la "Tabella delle Controparti";
+   f. Fornire la "Tabella delle Controparti";
 
-   h. Indicare tutte le informazioni riguardanti il “Tavolo operativo”.
+   g. Indicare tutte le informazioni riguardanti il “Tavolo operativo”.
 
-6. AgID autorizza all’Esercizio l’Ente Creditore invitando il Referente
+7. AgID autorizza all’Esercizio l’Ente Creditore invitando il Referente
    Pagamenti dell’Ente ad attivare sul PdA (qualora non ne esistano)
    almeno un IBAN di accredito.
 
