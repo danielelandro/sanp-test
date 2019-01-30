@@ -60,33 +60,50 @@ recapitata.
 
 **Figura** **2: Richiesta della copia di una RT**
 
-1. l’EC sottomette al NodoSPC la richiesta di ricevere una copia della
-      RT mediante la primitiva *nodoChiediCopiaRT*;
-
-**Caso OK**
-
-2. La RT è correttamente trovata dal NodoSPC e restituita all’EC in
-      allegato alla *response* positiva alla primitiva di cui al punto 1
-
-**Caso KO**
-
-3. il NodoSPC replica negativamente alla richiesta precedente fornendo
-   *response* KO alla primitiva di cui al punto 1 emanando un
-   *faultBean* il cui *faultBean.faultCode* è rappresentativo
-   dell’errore riscontrato; in particolare:
-
-   -  PPT_SINTASSI_XSD: nel caso di errore di validazione della
-      richiesta
-
-   -  PPT_SINTASSI_EXTRAXSD: nel caso di errore di validazione della
-      SOAP *request*
-
-   -  PPT_SEMANTICA: nel caso di errori semantici
-
-   -  PPT_RT_SCONOSCIUTA: i parametri di input specificati nella
-      richiesta non consentono di trovare alcuna RT
-
-   -  PPT_RT_NONDOSPONIBILE: la RT richiesta non è disponibile.
++-----------------------------------+-----------------------------------+
+|                                   | 1. L’EC sottomette al NodoSPC la  |
+|                                   |    richiesta di ricevere una      |
+|                                   |    copia della RT mediante la     |
+|                                   |    primitiva *nodoChiediCopiaRT*; |
++-----------------------------------+-----------------------------------+
+| **Caso OK**                       | 2. La RT è correttamente trovata  |
+|                                   |    dal NodoSPC e restituita       |
+|                                   |    all’EC in allegato alla        |
+|                                   |    *response* positiva alla       |
+|                                   |    primitiva di cui al punto 1    |
++-----------------------------------+-----------------------------------+
+| **Caso KO**                       | 3. il NodoSPC replica             |
+|                                   |    negativamente alla richiesta   |
+|                                   |    precedente fornendo response   |
+|                                   |    KO alla primitiva di cui al    |
+|                                   |    punto 1 emanando un            |
+|                                   |    *faultBean* il cui             |
+|                                   |    *faultBean.faultCode* è        |
+|                                   |    rappresentativo dell’errore    |
+|                                   |    riscontrato; in particolare:   |
+|                                   |                                   |
+|                                   | -  PPT_SINTASSI_XSD: nel caso di  |
+|                                   |       errore di validazione della |
+|                                   |       richiesta                   |
+|                                   |                                   |
+|                                   | -  PPT_SINTASSI_EXTRAXSD: nel     |
+|                                   |       caso di errore di           |
+|                                   |       validazione della SOAP      |
+|                                   |       request                     |
+|                                   |                                   |
+|                                   | -  PPT_SEMANTICA: nel caso di     |
+|                                   |       errori semantici            |
+|                                   |                                   |
+|                                   | -  PPT_RT_SCONOSCIUTA: i          |
+|                                   |       parametri di input          |
+|                                   |       specificati nella richiesta |
+|                                   |       non consentono di trovare   |
+|                                   |       alcuna RT                   |
+|                                   |                                   |
+|                                   | -  PPT_RT_NONDOSPONIBILE: la RT   |
+|                                   |       richiesta non è             |
+|                                   |       disponibile.                |
++-----------------------------------+-----------------------------------+
 
 Richiesta della Lista delle RPT Pendenti
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
