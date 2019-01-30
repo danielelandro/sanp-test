@@ -16,7 +16,7 @@ del soggetto istanziante e delle motivazioni che innescano l’esecuzione
 del processo, possono verificarsi le situazioni mostrate nella figura
 seguente.
 
-|info|
+|image0|
 
 **Figura** **1: Attori coinvolti nell'innesco dei processi di revoca e
 storno di una RT**
@@ -116,8 +116,6 @@ dal PSP attestante il pagamento. Il caso d’uso nominale è rappresentato
 nella tabella successiva.
 
 +-----------------------------------+-----------------------------------+
-|                                   | -                                 |
-+===================================+===================================+
 | Pre-Condizione                    | -  è stata recapitata all’EC una  |
 |                                   |    RT positiva, ma l’Utilizzatore |
 |                                   |    finale non è stato addebitato  |
@@ -168,7 +166,7 @@ nella tabella successiva.
 
 L’evoluzione temporale del processo di revoca è il seguente:
 
-|C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\SD_Annullo_Tecnico.png|
+|image1|
 
 **Figura** **2: Diagramma di sequenza del processo di revoca di una RT
 per Annullo Tecnico**
@@ -275,7 +273,7 @@ nella figura successiva, avendo cura di notare che il caso d’uso
 rappresenta lo scenario in cui le cui invocazioni SOAP si concludono con
 esito positivo (esito: OK come parametro di *output*).
 
-|C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\SD_ChargeBack.png|
+|image2|
 
 **Figura** **3: Diagramma di sequenza del processo di revoca per
 charge-back**
@@ -360,7 +358,7 @@ l’evoluzione temporale sono mostrate nella figura successiva.
 
 |image3|
 
-**Tabella** **6: Evoluzione temporale del processo di storno di un
+**Figura** **4: Evoluzione temporale del processo di storno di un
 pagamento**
 
 1.  l’Utilizzatore finale richiede lo storno di un pagamento effettuato
@@ -495,7 +493,7 @@ L’evoluzione temporale è la seguente:
 
 |image4|
 
-**Figura** **4: Diagramma di sequenza del processo di riconciliazione
+**Figura** **5: Diagramma di sequenza del processo di riconciliazione
 contabile**
 
 1. il PSP accredita con SCT il conto di un EC. L’importo dello SCT può
@@ -1027,9 +1025,9 @@ processo di revoca del pagamento.
 
 **Tabella** **9: RR Rifiutata dal NodoSPC**
 
-|SD_ERR_nodoInviaRichiestaRevoca|
+|image5|
 
-**Figura** **5: Diagramma di sequenza nel caso di RR rifiutata dal
+**Figura** **6: Diagramma di sequenza nel caso di RR rifiutata dal
 Nodo**
 
 L’evoluzione temporale è la seguente:
@@ -1121,9 +1119,9 @@ Nodo**
 |                                   | Revoca Rifiutata                  |
 +-----------------------------------+-----------------------------------+
 
-|C:\Users\gianni.papetti\AppData\Local\Microsoft\Windows\INetCache\Content.Word\SD_ERR_paaInviaRichiestaRevoca.png|
+|image6|
 
-**Figura** **6: Diagramma di sequenza per il caso di errore di RR
+**Figura** **7: Diagramma di sequenza per il caso di errore di RR
 rifiutata dall'EC**
 
 L’evoluzione temporale del caso d’uso è la seguente (dal punto 4):
@@ -1176,9 +1174,9 @@ dall'EC**
 |                                   | Revoca Rifiutata                  |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_nodoInviaRispostaRevoca|
+|image7|
 
-**Figura** **7: Diagramma di sequenza per lo scenario di ER rifiutata
+**Figura** **8: Diagramma di sequenza per lo scenario di ER rifiutata
 dal Nodo**
 
 L’evoluzione temporale dello scenario è il seguente­:
@@ -1248,9 +1246,9 @@ di ER rifiutata dal Nodo**
 |                                   | Revoca Rifiutata                  |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_nodoInviaRispostaRevoca_ERR_PSP|
+|image8|
 
-**Figura** **8: Diagramma di sequenza per il caso ER rifiutata dal PSP**
+**Figura** **9: Diagramma di sequenza per il caso ER rifiutata dal PSP**
 
 L’evoluzione dello scenario in esame è il seguente (si assume
 validazione positiva da parte del NodoSPC, punto 3)
@@ -1313,7 +1311,7 @@ l’esito positivo o meno del processo di storno del pagamento.
 
 |image9|
 
-**Figura** **9: Diagramma di sequenza dello scenario richiesta storno
+**Figura** **10: Diagramma di sequenza dello scenario richiesta storno
 rifiutata dal Nodo**
 
 L’evoluzione temporale è la seguente:
@@ -1408,9 +1406,9 @@ Richiesta Storno rifiutata dal Nodo**
 |                                   | Storno Rifiutato                  |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_RICHIESTA_STORNO_KO_PSP|
+|image10|
 
-**Figura** **10: Evoluzione temporale dello scenario richiesta storno
+**Figura** **11: Evoluzione temporale dello scenario richiesta storno
 rifiutata dal PSP**
 
 L’evoluzione temporale è la seguente (dal punto 4):
@@ -1469,9 +1467,9 @@ Richiesta Storno rifiutata dal PSP**
 |                                   | Storno Rifiutato                  |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_ESITO_STORNO_KO_NODO|
+|image11|
 
-**Figura** **11: Scenario Esito Storno rifiutato dal Nodo**
+**Figura** **12: Scenario Esito Storno rifiutato dal Nodo**
 
 L’evoluzione temporale è la seguente:
 
@@ -1563,9 +1561,9 @@ Nodo**
 |                                   | Storno Rifiutato                  |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_ESITO_STORNO_KO_EC|
+|image12|
 
-**Figura** **12: Scenario Esito Storno rifiutato da EC**
+**Figura** **13: Scenario Esito Storno rifiutato da EC**
 
 L’evoluzione temporale dello scenario è il seguente (dal punto 4):
 
@@ -1629,9 +1627,9 @@ caso in cui le parti riscontrassero fenomeni di timeout.
 |                                   | Richiesta Storno Inviata          |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_ESITO_STORNO_TIMEOUT|
+|image13|
 
-**Figura** **13: Evoluzione temporale dello scenario Esito Storno
+**Figura** **14: Evoluzione temporale dello scenario Esito Storno
 mancate per timeout**
 
 L’evoluzione temporale è la seguente:
@@ -1767,9 +1765,9 @@ successiva:
 |                                   | *RT_PAGATA*                       |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_FLUSSO_KO_NODO|
+|image14|
 
-**Figura** **14: Evoluzione temporale dello scenario flusso rifiutato
+**Figura** **15: Evoluzione temporale dello scenario flusso rifiutato
 dal Nodo**
 
 L’evoluzione temporale dello scenario è la seguente:
@@ -1889,7 +1887,7 @@ L’evoluzione temporale è la seguente:
 
 |image15|
 
-**Figura** **15: Timeout invio flusso di rendicontazione**
+**Figura** **16: Timeout invio flusso di rendicontazione**
 
 1. il PSP accredita con SCT il conto dell’EC per l’importo delle somme
    incassate (l’SCT contiene l’indicazione del flusso di
@@ -1970,9 +1968,9 @@ L’evoluzione temporale è la seguente:
 |                                   | *RT_EC*                           |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_RICHIESTA_FLUSSI_KO|
+|image16|
 
-**Figura** **16: Richiesta lista flussi di rendicontazione rifiutata dal
+**Figura** **17: Richiesta lista flussi di rendicontazione rifiutata dal
 NodoSPC**
 
 L’evoluzione temporale dello scenario è la seguente:
@@ -2023,9 +2021,9 @@ lista flussi rifiutata dal Nodo**
 | Post-condizione                   | Lo stato del pagamento è in RT_EC |
 +-----------------------------------+-----------------------------------+
 
-|SD_ERR_RICHIESTA_FLUSSO_KO|
+|image17|
 
-**Figura** **17: Evoluzione temporale dello scenario richiesta Flusso
+**Figura** **18: Evoluzione temporale dello scenario richiesta Flusso
 rifiutata dal Nodo / Flusso mancate**
 
 L’evoluzione temporale dello scenario è la seguente:
@@ -2093,57 +2091,57 @@ presente**
 .. [3]
    Per i dettagli del Tavolo Operativo si rimanda alla sezione IV.
 
-.. |info| image:: media_Backoffice/media/image1.png
-   :width: 6.67847in
-   :height: 2.52153in
-.. |C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\SD_Annullo_Tecnico.png| image:: media_Backoffice/media/image2.png
+.. |image0| image:: media_Backoffice/media/image1.png
    :width: 6.69306in
-   :height: 3.82492in
-.. |C:\Users\mogi\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\2QI8WBLX\SD_ChargeBack.png| image:: media_Backoffice/media/image3.png
-   :width: 6.58106in
-   :height: 3.9452in
+   :height: 2.53125in
+.. |image1| image:: media_Backoffice/media/image2.png
+   :width: 6.69306in
+   :height: 3.82778in
+.. |image2| image:: media_Backoffice/media/image3.png
+   :width: 6.325in
+   :height: 3.78922in
 .. |image3| image:: media_Backoffice/media/image4.png
-   :width: 5in
-   :height: 2.8125in
+   :width: 5.00479in
+   :height: 2.81377in
 .. |image4| image:: media_Backoffice/media/image5.png
    :width: 6.69306in
-   :height: 5.31944in
-.. |SD_ERR_nodoInviaRichiestaRevoca| image:: media_Backoffice/media/image6.png
-   :width: 5.11458in
-   :height: 2.46875in
-.. |C:\Users\gianni.papetti\AppData\Local\Microsoft\Windows\INetCache\Content.Word\SD_ERR_paaInviaRichiestaRevoca.png| image:: media_Backoffice/media/image7.png
-   :width: 5.7381in
-   :height: 2.67361in
-.. |SD_ERR_nodoInviaRispostaRevoca| image:: media_Backoffice/media/image8.png
-   :width: 4.98264in
-   :height: 3.13889in
-.. |SD_ERR_nodoInviaRispostaRevoca_ERR_PSP| image:: media_Backoffice/media/image9.png
-   :width: 5.09583in
-   :height: 2.66944in
+   :height: 5.31875in
+.. |image5| image:: media_Backoffice/media/image6.png
+   :width: 6.69306in
+   :height: 3.225in
+.. |image6| image:: media_Backoffice/media/image7.png
+   :width: 6.69306in
+   :height: 3.11181in
+.. |image7| image:: media_Backoffice/media/image8.png
+   :width: 6.41756in
+   :height: 4.02139in
+.. |image8| image:: media_Backoffice/media/image9.png
+   :width: 6.69306in
+   :height: 3.51042in
 .. |image9| image:: media_Backoffice/media/image10.png
-   :width: 5in
-   :height: 2.66667in
-.. |SD_ERR_RICHIESTA_STORNO_KO_PSP| image:: media_Backoffice/media/image11.png
-   :width: 6.68681in
-   :height: 2.77361in
-.. |SD_ERR_ESITO_STORNO_KO_NODO| image:: media_Backoffice/media/image12.png
-   :width: 5.35845in
-   :height: 3.03183in
-.. |SD_ERR_ESITO_STORNO_KO_EC| image:: media_Backoffice/media/image13.png
-   :width: 6.69583in
+   :width: 4.9957in
+   :height: 2.66377in
+.. |image10| image:: media_Backoffice/media/image11.png
+   :width: 6.69306in
+   :height: 2.76875in
+.. |image11| image:: media_Backoffice/media/image12.png
+   :width: 6.69306in
+   :height: 3.79306in
+.. |image12| image:: media_Backoffice/media/image13.png
+   :width: 6.69306in
    :height: 3.26944in
-.. |SD_ERR_ESITO_STORNO_TIMEOUT| image:: media_Backoffice/media/image14.png
-   :width: 6.68681in
-   :height: 4.94792in
-.. |SD_ERR_FLUSSO_KO_NODO| image:: media_Backoffice/media/image15.png
-   :width: 6.69583in
-   :height: 4.24375in
+.. |image13| image:: media_Backoffice/media/image14.png
+   :width: 6.69306in
+   :height: 4.95417in
+.. |image14| image:: media_Backoffice/media/image15.png
+   :width: 6.69306in
+   :height: 4.23611in
 .. |image15| image:: media_Backoffice/media/image16.png
-   :width: 5in
-   :height: 2.98958in
-.. |SD_ERR_RICHIESTA_FLUSSI_KO| image:: media_Backoffice/media/image17.png
-   :width: 5.97361in
-   :height: 2.00903in
-.. |SD_ERR_RICHIESTA_FLUSSO_KO| image:: media_Backoffice/media/image18.png
-   :width: 6.01736in
-   :height: 2.32153in
+   :width: 6.69306in
+   :height: 4.00486in
+.. |image16| image:: media_Backoffice/media/image17.png
+   :width: 5.96958in
+   :height: 2.0107in
+.. |image17| image:: media_Backoffice/media/image18.png
+   :width: 6.02167in
+   :height: 2.32324in
