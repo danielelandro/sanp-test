@@ -538,26 +538,22 @@ Strategie di retry per il recapito della RT
 **Figura** **10: meccanismi di recovery per RT PUSH**
 
 1. Il PSP sottomette al NodoSPC la RT attraverso la primitiva
-      *nodoInviaRT*:
+   *nodoInviaRT*:
 
-..
+**Alternativamente**
 
-   Alternativamente
-
-   **EC in timeout**
+**EC in timeout**
 
 2. Il NodoSPC replica emanando un *faultBean* il cui
-      *faultBean.faultCode* è pari a PPT_STAZIONE_INT_PA_TIMEOUT
+   *faultBean.faultCode* è pari a PPT_STAZIONE_INT_PA_TIMEOUT
 
-..
-
-   **Timeout**
+**Timeout**
 
 3. Il PSP non riceve alcuna risposta alla primitiva precedente
 
 4. Il PSP ritenta nuovamente l’invio della RT in modalità PUSH per un
-      massimo di 5 tentativi attenendosi scrupolosamente alla seguente
-      schedulazione
+   massimo di 5 tentativi attenendosi scrupolosamente alla seguente
+   schedulazione
 
 +---------------+------------+
 | **Tentativo** | **Attesa** |
@@ -573,11 +569,9 @@ Strategie di retry per il recapito della RT
 | 5             | 80 secondi |
 +---------------+------------+
 
-..
+**Alternativamente**
 
-   **Alternativamente**
-
-   *Response OK alla primitiva*
+**Response OK alla primitiva**
 
 5. Il NodoSPC inoltra *response* positiva alla primitiva di cui al punto
    precedente
@@ -602,7 +596,7 @@ Strategie di retry per il recapito della RT
 
 **Alternativamente**
 
-In caso di RT corretta
+**In caso di RT corretta**
 
 12. Il NodoSPC invia conferma al PSP dell’avvenuta ricezione della RT
     mediante la primitiva pspInviaAckRT. Il mesaggio di ackRT riporterà
@@ -612,7 +606,7 @@ In caso di RT corretta
 
 14. Il PSP replica fornendo esito OK alla primitiva di cui al punto 14
 
-In caso di RT non corretta
+**In caso di RT non corretta**
 
 15. Il NodoSPC invia notifica al PSP il rifiuto della RT mediante la
     primitiva *pspInviaAckRT*. Il mesaggio di *ackRT* riporterà nel dato
@@ -722,39 +716,39 @@ Richiesta di avanzamento RT
 
    -  CANALE_RT_RIFIUTATA_EC: la RT è stata rifiutata dall’EC.
 
-.. |Intro| image:: media_Ausiliarie/media/image1.png
+.. |Intro| image:: media_FunzioniStrategieRecupero/media/image1.png
    :width: 6.68681in
    :height: 3.60903in
-.. |nodoChiediCopiaRT| image:: media_Ausiliarie/media/image2.png
+.. |nodoChiediCopiaRT| image:: media_FunzioniStrategieRecupero/media/image2.png
    :width: 4.44375in
    :height: 3.24375in
-.. |nodoChiediRPTPendenti| image:: media_Ausiliarie/media/image3.png
+.. |nodoChiediRPTPendenti| image:: media_FunzioniStrategieRecupero/media/image3.png
    :width: 6.55625in
    :height: 2.63472in
-.. |nodoChiediStatoRPT| image:: media_Ausiliarie/media/image4.png
+.. |nodoChiediStatoRPT| image:: media_FunzioniStrategieRecupero/media/image4.png
    :width: 5.56528in
    :height: 2.94792in
-.. |SD_nodoChiediInformativaPSP| image:: media_Ausiliarie/media/image5.png
+.. |SD_nodoChiediInformativaPSP| image:: media_FunzioniStrategieRecupero/media/image5.png
    :width: 5.37361in
    :height: 4.30417in
-.. |SD_nodoChiediCatalogoServizi| image:: media_Ausiliarie/media/image6.png
+.. |SD_nodoChiediCatalogoServizi| image:: media_FunzioniStrategieRecupero/media/image6.png
    :width: 4.90417in
    :height: 2.63472in
-.. |SD_nodoChiediTemplateInformativaPSP| image:: media_Ausiliarie/media/image7.png
+.. |SD_nodoChiediTemplateInformativaPSP| image:: media_FunzioniStrategieRecupero/media/image7.png
    :width: 6.43472in
    :height: 3.21736in
-.. |SD_nodoChiediInformativaPA| image:: media_Ausiliarie/media/image8.png
+.. |SD_nodoChiediInformativaPA| image:: media_FunzioniStrategieRecupero/media/image8.png
    :width: 5.53889in
    :height: 2.47847in
-.. |sd_nodoChiediStatoElaborazioneFlussoRendicontazione| image:: media_Ausiliarie/media/image9.png
+.. |sd_nodoChiediStatoElaborazioneFlussoRendicontazione| image:: media_FunzioniStrategieRecupero/media/image9.png
    :width: 6.69583in
    :height: 2.54792in
-.. |RT_PUSH| image:: media_Ausiliarie/media/image10.png
+.. |RT_PUSH| image:: media_FunzioniStrategieRecupero/media/image10.png
    :width: 3.43396in
    :height: 4.00499in
-.. |pspChiediAvanzamentoRPT| image:: media_Ausiliarie/media/image11.png
+.. |pspChiediAvanzamentoRPT| image:: media_FunzioniStrategieRecupero/media/image11.png
    :width: 5.91319in
    :height: 2.98264in
-.. |pspChiediAvanzamentoRT| image:: media_Ausiliarie/media/image12.png
+.. |pspChiediAvanzamentoRT| image:: media_FunzioniStrategieRecupero/media/image12.png
    :width: 5.74792in
    :height: 2.98264in
