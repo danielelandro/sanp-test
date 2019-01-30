@@ -641,7 +641,7 @@ Richiesta **avanzamento** RPT
 
 |pspChiediAvanzamentoRPT|
 
-**Figura** **11: Richiesta** avanzamento **RPT**
+**Figura** **11: Richiesta avanzamento RPT**
 
 1. il NodoSPC, mediante la primitiva *pspChiediAvanzamentoRPT,* richiede
    al PSP informazioni in merito allo stato di avanzamento di una RPT o
