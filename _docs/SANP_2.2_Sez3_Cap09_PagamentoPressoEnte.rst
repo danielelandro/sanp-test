@@ -1,8 +1,8 @@
-9. .. rubric:: Pagamento presso l’Ente Creditore
-      :name: pagamento-presso-lente-creditore
+PAGAMENTO PRESSO L’ENTE CREDITORE
+=================================
 
-   1. .. rubric:: Attori e casi d’uso
-         :name: attori-e-casi-duso
+Attori e casi d’uso
+-------------------
 
 All’interno di questo capitolo vengono descritti i casi d’uso per il
 pagamento innescato dall’Utilizzatore Finale attraverso l’interazione
@@ -34,9 +34,8 @@ Lo scenario di utilizzo è descritto dal seguente caso d’uso nominale:
    guidata tramite apposita interfaccia *web* resa disponibile dal
    NodoSPC.
 
-   2. .. rubric:: Pagamento online con guida interattiva di selezione
-         del PSP (WISP)
-         :name: pagamento-online-con-guida-interattiva-di-selezione-del-psp-wisp
+Pagamento online con guida interattiva di selezione del PSP (WISP)
+------------------------------------------------------------------
 
 +-----------------------------------+-----------------------------------+
 | Pre-Condizione                    | L’Utilizzatore finale innesca il  |
