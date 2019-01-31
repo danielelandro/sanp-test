@@ -1,4 +1,4 @@
-PAGAMENTO PRESSO L’ENTE CREDITORE
+Pagamento presso l’ente creditore
 =================================
 
 Attori e casi d’uso
@@ -41,7 +41,7 @@ Pagamento online con guida interattiva di selezione del PSP (WISP)
 | Pre-Condizione                    | L’Utilizzatore finale innesca il  |
 |                                   | processo di pagamento riferito a  |
 |                                   | una Posizione Debitoria aperta.   |
-+===================================+===================================+
++-----------------------------------+-----------------------------------+
 | Trigger                           | L’Utilizzatore finale esce dalla  |
 |                                   | pagina di *check-out* sul Portale |
 |                                   | dell’EC innescando il processo di |
@@ -149,7 +149,7 @@ c. *ibanAppoggio*: deve risultare inserito nella lista dei conti
    pagamento.
 
 A seconda delle scelte operate dall’Utilizzatore finale, sono possibili
-due differenti scenari alternativi.
+due differenti scenari alternativi:
 
 -  Pagamento con carta;
 
@@ -268,8 +268,8 @@ finale visualizza l’esito del pagamento.
 
 31. Il NodoSPC inoltra la *response* fornita dall’EC al PSP.
 
-    1. .. rubric:: Caso acquisto Marca da bollo digitale
-          :name: caso-acquisto-marca-da-bollo-digitale
+Caso acquisto Marca da bollo digitale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Il pagamento di una Marca da Bollo Digitale avviene attraverso il
 medesimo *workflow* applicativo decritto nel paragrafo precedente. Si fa
