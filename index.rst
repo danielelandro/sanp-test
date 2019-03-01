@@ -4,7 +4,7 @@
 
 
 #############################################################
-Specifiche Attuative del Nodo dei Pagamenti-SPC ver. 2.2 Beta
+Specifiche Attuative del Nodo dei Pagamenti-SPC versione 2.2
 #############################################################
 
 
@@ -45,7 +45,7 @@ Specifiche Attuative del Nodo dei Pagamenti-SPC ver. 2.2 Beta
 	:caption: Indice dei contenuti
 
 
-	_docs/Sezione_Peambolo.rst
+	_docs/Sezione_Preambolo.rst
 	_docs/Sezione_I.rst
 	_docs/Sezione_II.rst
 	_docs/Sezione_III.rst

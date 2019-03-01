@@ -1,13 +1,14 @@
 Attivazione di un PSP sul sistema pagoPA
 ========================================
 
-Ciascun PSP deve sottoscrivere con AgID un atto formale, l’\ **Accordo di servizio**, indispensabile
-per utilizzare l’infrastruttura del Nodo-SPC e per usufruire dei servizi di supporto connessi.
+Per aderire a pagoPA il PSP sottoscrive con AgID un atto, l’\ **Accordo di servizio**, che delinea
+oneri e responsabilità connesse al ruolo, permette di utilizzare l’infrastruttura del Nodo-SPC e di
+usufruire dei servizi di supporto connessi.
 
-Come previsto dalle Linee Guida, un PSP può erogare su pagoPA in forma autonoma servizi di pagamento
-e altresì utilizzare il servizio di intermediazione tecnologica erogato da terzi per altri servizi
-di pagamento. In altri termini, un PSP può risultare - a sua libera scelta - sia erogatore di
-servizi, sia soggetto intermediato, a seconda del servizio di pagamento offerto.
+Come previsto dalle Linee Guida, un PSP eroga su pagoPA servizi di pagamento direttamente o può
+altresì utilizzare il servizio di intermediazione tecnologica erogato da terzi per altri servizi di
+pagamento. In altri termini, un PSP può risultare - a sua scelta - sia erogatore di servizi, sia
+soggetto intermediato, a seconda del servizio di pagamento offerto.
 
 Con l’Accordo di servizio è nominato il “Referente dei Servizi” (RS) del PSP che svolge funzioni di
 unico interlocutore nei confronti di AgID per ogni attività tecnica ed è delegato a gestire ogni
@@ -16,8 +17,8 @@ configurazione e all'attivazione del PSP nonché gestire tutti gli aggiornamenti
 intervenire successivamente.
 
 Il **Catalogo dei Dati Informativi**, la cui struttura è ampiamente descritta nella Sezione III
-delle SANP, è lo strumento con il quale il PSP comunica ad AgID tutte le informazioni relative ai
-servizi di pagamento offerti comprese le condizioni di utilizzo ed i costi di commissione massimi
+delle SANP, è lo strumento con il quale il PSP comunica ad AgID le informazioni basilari relative ai
+servizi di pagamento offerti comprese le condizioni di utilizzo ed i costi massimi di commissione
 applicati.
 
 Il processo di avvio in Esercizio sul sistema pagoPA di un PSP dipende dai modelli di pagamento e/o
@@ -93,13 +94,29 @@ segue:
 8. Al fine di completare il processo, il RS deve fornire ad AgID tutte le informazioni riguardanti
    il “Tavolo operativo”.
 
-   2. .. rubric:: Attivazione di un PSP che svolge il ruolo di Acquirer
-         :name: attivazione-di-un-psp-che-svolge-il-ruolo-di-acquirer
+   2. .. rubric:: Configurazione del POS virtuale
+         :name: configurazione-del-pos-virtuale
 
-Il processo di configurazione che devono eseguire i PSP che intendono svolgere il ruolo di acquirer
-nel sistema pagoPA tramite il POS virtuale AgID è descritto nell’apposita **monografia,** intitolata
-"Transazioni attraverso il POS Virtuale AgID del Nodo dei Pagamenti-SPC" e pubblicata sul sito
-istituzionale dell’Agenzia.
+I PSP che intendono accettare pagamenti con carta tramite pagoPA devono configurare, sul POS
+virtuale centralizzato esposto dal WISP, una coppia di punti vendita per ogni circuito, uno dei
+quali sarà dedicato alla transazione prive di CVV (MO/TO).
+
+Per ogni punto vendita è necessario che il PSP comunichi i seguenti dati: ShopName, Circuito,
+Merchant Id, Terminal Id e UID 3DS.
+
+Per poter instradare correttamente i pagamenti con carta su pagoPA il CDI del PSP deve includere
+almeno un canale specializzato a tale tipologia di pagamenti. I canali, ognuno potenzialmente con
+diverso profilo commissionale, che il PSP può includere sono di due tipi:
+
+1. **Tipo “\ not on us\ ”:** canale utilizzato sul WISP per la selezione del PSP da parte
+   dell’Utilizzatore finale;
+
+2. **Tipo “\ on us\ ”:** dedicato alle transazioni con carte emesse dallo stesso PSP (transazioni
+   “\ *on us*\ ”), che non prevedono una esplicita selezione del PSP. Tale canale sarà identificato
+   da un IdCanale concatenato alla stringa “_ONUS”.
+
+Per completare la configurazione il PSP comunica l’associazione fra canali e punti vendita e i *bin
+table range* che il NodoSPC utilizza per riconoscere le transazioni di tipo “\ *on u*\ s”.
 
 Attivazione di un PSP che offre il servizio MyBank
 --------------------------------------------------

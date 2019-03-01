@@ -7,26 +7,15 @@ di *Home banking* e *mobile* *payment*, uffici postali, punti della rete di vend
 Monopolio (Tabaccai), SISAL e Lottomatica, casse predisposte presso la Grande Distribuzione
 Organizzata, ecc.
 
-L’Ente Creditore che consente il pagamento deve mettere a disposizione dei Prestatori di Servizi di
-Pagamento, attraverso il NodoSPC, un archivio nel quale siano già stati memorizzati i pagamenti
-predisposti dall’ente (Archivio Pagamenti in Attesa).
+L’Ente Creditore beneficiario del pagamento deve rendere accessibile ai Prestatori di Servizi di
+Pagamento, con le modalità mediate dal NodoSPC, un archivio nel quale siano state preventivamente
+memorizzate le posizioni debitorie (Archivio Pagamenti in Attesa).
 
 Per rendere possibile il pagamento l’Ente Creditore ha l’obbligo di recapitare all’utilizzatore
 finale un avviso con gli estremi del pagamento da effettuare. Tale recapito deve obbligatoriamente
 avvenire sia in modalità analogica (tramite servizi postali), che digitale. L’Ente Creditore può
 inoltre adottare ulteriori misure per la diffusione degli avvisi di pagamento, per esempio rendere
 disponibili funzioni di stampa on line tramite il proprio sito.
-
-Il processo di pagamento descritto di seguito, supporta principalmente la modalità di incasso su
-iniziativa dell’Ente Creditore, ma può essere utilizzato anche per gestire la modalità di incasso su
-iniziativa del debitore, atteso che, sul proprio portale, l’Ente Creditore metta a disposizione
-dell’utilizzatore finale la possibilità di eseguire pagamenti presso gli sportelli dei Prestatori di
-Servizi di Pagamento generando a richiesta del debitore, un avviso di pagamento utilizzabile
-all’uopo.
-
-Anche il modello di pagamento in esame può essere utilizzato dall’utente per tutti quei servizi per
-i quali non è necessario disporre in via immediata dell’attestazione di pagamento, che può essere
-esibita in un momento successivo.
 
 Nello schema di Figura 10 è trattato il caso in cui l’utilizzatore finale, già in possesso
 dell’avviso di pagamento analogico fornito dall’Ente, si rechi presso le strutture del Prestatore di
@@ -63,89 +52,88 @@ Nel processo in oggetto (**Figura 2**) sono coinvolti quattro soggetti:
 Avvio del pagamento
 -------------------
 
-Come descritto nei paragrafi precedenti, l’Utilizzatore finale può eseguire un pagamento per ragioni
-diverse, che generano due diramazioni distinte (gateway G2.2.1), nel caso che abbia disponibile o
-meno un avviso di pagamento (digitale e analogico).
+L’Utilizzatore finale può eseguire un pagamento con due itinerari distinti (gateway G2.2.1)
+discriminati dal fatto che esista una posizione debitoria. Nel caso che la posizione debitoria
+esista l’Utilizzatore finale dispone di un avviso di pagamento, altrimenti occorre che il PSP
+interagisca con l’Ente Creditore per generarne una.
 
-Generazione posizione debitoria
--------------------------------
+Generazione posizione debitoria per pagamento spontaneo
+-------------------------------------------------------
 
 La generazione della posizione debitoria è l’evento che costituisce la premessa al pagamento sul
 Sistema pagoPA.
 
 In determinate circostanze, previste nello specifico dalla vigente normativa, un soggetto matura un
 debito in favore di una Pubblica Amministrazione (centrale o locale). In questo caso lo stesso Ente
-Creditore assume l’iniziativa di genera una posizione debitoria e provvede a notificare l’avviso di
-pagamento al soggetto pagatore. L’EC è altresì tenuto ad accompagnare la notifica con avviso
-analogico, anche con l’invio al NodoSPC di un avviso digitale *push*. Questa attività è parte del
-processo di avvisatura digitale.
+Creditore assume l’iniziativa di generare una posizione debitoria e provvede a notificare l’avviso
+di pagamento al soggetto pagatore. Questa casistica prende il nome di pagamento dovuto. Nel caso che
+l’EC sia tenuto ad accompagnare la notifica con un avviso di pagamento analogico, provvede anche a
+inviare al NodoSPC di un avviso digitale. Con questi strumenti si innesca il pagamento presso il
+PSP.
 
-Nel caso in cui non sussistano le circostanze sopra indicate per il pagamento dovuto, ovvero
-l’Utilizzatore finale non sia in possesso di un avviso digitale, l’Utilizzatore stesso può assumere
-l’iniziativa di avviare il pagamento (pagamento spontaneo), purché sia disponibile la relativa
-funzione. In questo caso l’Utilizzatore finale accede a portali messi a disposizione dal Prestatore
-di Servizi di Pagamento e quest’ultimo richiede all’Ente Creditore la generazione della posizione
+Nel caso in cui non sussistano le circostanze sopra indicate e quindi l’Utilizzatore finale non sia
+in possesso di un avviso digitale, l’Utilizzatore stesso può assumere l’iniziativa di avviare il
+pagamento (pagamento spontaneo), purché il PSP disponga della relativa funzione. In questo caso
+l’Utilizzatore finale interagisce con uno specifico servizio messo a disposizione dal Prestatore di
+Servizi di Pagamento e, tramite questo, richiede all’Ente Creditore la generazione della posizione
 debitoria (*Task* T2.2.1). L’Ente Creditore risponde con l’invio al Prestatore Servizi di Pagamento
-di un numero avviso (*Task* T2.2.2) che può essere consegnato all’Utilizzatore (Task T2.2.3) che
-dunque può decidere se autorizzare (*Task* T2.2.8).
+di un avviso (*Task* T2.2.2) che può entrare nella disponibilità all’Utilizzatore finale (Task
+T2.2.3) il quale dunque dispone degli elementi per decidere se autorizzare il pagamento (*Task*
+T2.2.8). Dopo tale fase preliminare il workflow di pagamento risulta indistinguibile da quello
+innescato da un avviso.
 
-Verifica posizione debitoria e attivazione richiesta di pagamento telematica
-----------------------------------------------------------------------------
+Verifica posizione debitoria e attivazione della richiesta di pagamento 
+------------------------------------------------------------------------
 
-Nel caso in cui l’Utilizzatore finale abbia ricevuto un avviso di pagamento e abbia deciso di pagare
-tramite un Prestatore Servizi di Pagamento, quest’ultimo, prima di effettuare il pagamento, può
-verificare la posizione debitoria utilizzando la specifica funzione, per accertarsi che il pagamento
-non sia stato saldato e/o i termini siano rimasti invariati (per esempio potrebbe essere variato
-l’importo a causa di interessi di mora)
+Nel caso in cui l’Utilizzatore finale inneschi il pagamento con un avviso, il PSP dispone di due
+primitive per gestire il *workflow*:
 
-Allorché il Prestatore Servizi di Pagamento chiede la verifica della posizione debitoria (*Gateway*
-G2.2.3), l’Ente Creditore risponde (Task T2.2.5) con i dati previsti riguardo lo stato della
-posizione debitoria, nonché le possibili variazioni dell'importo dovute ad eventi successivi
-all'invio dell'Avviso analogico, ad esempio il superamento della data di scadenza del pagamento).
-L’invocazione della funzione di verifica non ha effetti sullo stato della posizione debitoria.
+-  La funzione opzionale di verifica per controllare lo stato della posizione debitoria attraverso
+   l’Ente Creditore, verificando la sussistenza e la consistenza del debito, che può aver subito
+   variazioni decorsi i termini del pagamento (per esempio potrebbe essere variato l’importo a causa
+   dell’aggiungersi di interessi di mora)
 
-In caso di sussistenza della posizione debitoria l’Utilizzatore finale può decidere se pagare o meno
-(*Gateway* G2.2.2).
+-  La funzione necessaria di attivazione che, dopo aver eseguito gli stessi controlli previsti dalla
+   funzione di verifica, richiede all’Ente Creditore l’invio di una Richiesta di pagamento
+   telematica (RPT), ovvero il documento necessario a regolare il pagamento.
 
--  Se decide di pagare, allora viene attivata la richiesta di pagamento telematico (*Task* T2.2.7)
+È facoltà del Prestatore di Servizi di Pagamento eseguire preliminarmente la verifica della
+posizione debitoria (*Gateway* G2.2.3) dando luogo a una diramazione del processo:
 
--  In caso contrario il processo termina (*Task* T2.2.4)
+1) Nel caso venga eseguita la verifica l’Ente Creditore risponde (Task T2.2.5) fornendo i dati
+   previsti riguardo lo stato della posizione debitoria, nonché le possibili variazioni dell'importo
+   dovute ad eventi successivi all'invio dell'avviso. L’invocazione della funzione di verifica non
+   ha effetti sullo stato della posizione debitoria. In caso di sussistenza della posizione
+   debitoria l’Utilizzatore finale deve decidere se procedere (*Gateway* G2.2.2)
 
-Il Prestatore Servizi di Pagamento può, viceversa, invocare direttamente l’attivazione della
-richiesta di pagamento telematico (*Task* T2.2.6), peraltro comprendente la verifica della posizione
-debitoria.
+   a. Se l’Utilizzatore finale rifiuta di procedere il processo termina (*Task* T2.2.4), senza
+      alcuna segnalazione all’EC.
 
-L’Ente Creditore esegue l’attivazione della richiesta di pagamento telematico (*Task* T2.2.7.
+   b. Se l’Utilizzatore finale decide di procedere, il PSP esegue l’incasso e il processo prosegue,
+      nella seconda diramazione, con l’attivazione della RPT (*Task* T2.2.7) e la generazione di una
+      RT positiva (*Task* T2.2.11)
 
-Il processo si svolge poi diversamente nei casi in cui l’Utilizzatore finale ha effettuato o meno il
-pagamento prima che il Prestatore di Servizi di Pagamento richiedesse l’attivazione della richiesta
-di pagamento telematico (*Gateway* G2.2.6).
+2) Il PSP, che ha facoltà di non eseguire la diramazione precedente, richiede l’attivazione della
+   RPT (*Task* T2.2.6). L’Ente Creditore risponde (Task T2.2.7) fornendo, come nel caso della
+   funzione di verifica, i dati riguardo lo stato della posizione debitoria, nonché le possibili
+   variazioni dell'importo dovute ad eventi successivi all'invio dell'avviso. L’invocazione della
+   funzione di attivazione provoca l’invio della RPT e quindi ha effetto sullo stato della posizione
+   debitoria che viene posta nello stato “In pagamento” dall’EC. il PSP chiede all’Utilizzatore
+   finale di autorizzare il pagamento (*Gateway* G2.2.4):
 
-Nel caso che l’Utilizzatore finale non abbia ancora pagato, deve decidere se autorizzare il
-pagamento (*Gateway* G2.2.4):
+-  Se il pagamento è autorizzato, il Prestatore di Servizi di Pagamento incassa il pagamento (*Task*
+   T2.2.9) e genera una RT positiva (*Task* T2.2.11)
 
--  In caso negativo, se non esisteva ancora una richiesta di pagamento telematico attiva (*Gateway*
-   G2.2.7) è perché il Prestatore di Servizi di Pagamento aveva richiesto la verifica della
-   posizione debitoria, quini il processo termina, altrimenti il Prestatore di Servizi di Pagamento
-   genera una ricevuta telematica negativa (*Task* T2.2.10)
-
--  In caso positivo il Prestatore Servizi di Pagamento incassa il pagamento (*Task* T2.2.9)
-
-Una volta effettuato l’incasso (*Task* T2.2.9) il Prestatore Servizi di Pagamento genera la ricevuta
-telematica positiva (*Task* T2.2.11) se aveva già ricevuto una richiesta di pagamento telematico
-attivata (*Gateway* G2.2.5), perché lo aveva richiesto, altrimenti richiede la attivazione della
-richiesta di pagamento telematico (*Task* T2.2.6) che viene generata dall’Ente Creditore (*Task*
-T2.2.7) e solo a questo punto il Prestatore Servizi di Pagamento può generare la ricevuta telematica
-positiva (*Task* T2.2.11).
+-  Se il pagamento non è autorizzato, il Prestatore di Servizi di Pagamento genera una RT negativa
+   (*Task* T2.2.10)
 
 Nel caso di emissione di ricevuta telematica positiva il Prestatore di Servizi di Pagamento consegna
 all’Utilizzatore finale un’attestazione di pagamento, contenente le informazioni specificate nella
 sezione III. Tale attestazione è opponibile all’EC.
 
-Le ricevute telematiche sia positive che negative vengono trasmesse al NodoSPC.
-
-Il NodoSPC mette la ricevuta telematica a disposizione dell’Ente Creditore (*Task* 2.2.12) che a sua
-volta può mettere a disposizione dell’Utilizzatore finale una ricevuta (*Task* T2.2.13).
+Le ricevute telematiche vengono trasmesse al NodoSPC. Il NodoSPC mette la ricevuta telematica a
+disposizione dell’Ente Creditore (*Task* 2.2.12) che a sua volta può mettere a disposizione
+dell’Utilizzatore finale una ricevuta (*Task* T2.2.13).
 
 L’Utilizzatore finale a questo punto può ottenere la ricevuta (Task T2.2.14) e terminare il
 processo.

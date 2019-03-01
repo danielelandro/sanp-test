@@ -419,30 +419,31 @@ Richiesta Stato Elaborazione Flusso di Rendicontazione
 3. Il NodoSPC il NodoSPC replica con esito KO emanando un *faultBean* il cui
    *faultBean*.\ *faultCode* è PPT_SEMANTICA.
 
-Strategie di retry per il recapito della RT 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Strategie di *retry* per il recapito della RT 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-------------------------------------------------+-------------------------------------------------+
 | Pre-Condizione                                  | Il pagamento è nello stato RT-PSP               |
 +-------------------------------------------------+-------------------------------------------------+
 | Trigger                                         | Il PSP ha tentato l’invio di una RT e           |
 |                                                 |                                                 |
-|                                                 | -  non ha ricevuto risposta entro i termini     |
-|                                                 |    previsti                                     |
+|                                                 | -  il NodoSPC ha replicato mediante *response*  |
+|                                                 |    KO emanando un *faultBean* il cui            |
+|                                                 |    *faultBean.faultCode* è pari a               |
+|                                                 |    PPT_STAZIONE_INT_PA_TIMEOUT                  |
 |                                                 |                                                 |
 |                                                 | oppure                                          |
 |                                                 |                                                 |
-|                                                 | -  il NodoSPC ha replicato mediante response KO |
-|                                                 |    emanando un *faultBean* il cui               |
-|                                                 |    faultBean.faultCode è pari a                 |
-|                                                 |    PPT_STAZIONE_INT_PA_TIMEOUT                  |
+|                                                 | -  non ha ricevuto risposta entro i termini     |
+|                                                 |    previsti                                     |
 +-------------------------------------------------+-------------------------------------------------+
-| Descrizione                                     | Il PSP esegue *n* tentativi di invio della RT   |
-|                                                 | in modalità PUSH attendendo intervalli di tempo |
-|                                                 | crescenti                                       |
+| Descrizione                                     | Il PSP esegue fino a cinque tentativi di invio  |
+|                                                 | della RT in modalità PUSH attendendo intervalli |
+|                                                 | di tempo crescenti.                             |
 |                                                 |                                                 |
-|                                                 | Se l’esecuzione di tentativi di invio PUSH non  |
-|                                                 | ha esito positivo pone la RT nella coda PULL    |
+|                                                 | Se l’esecuzione di tutti i tentativi di invio   |
+|                                                 | non ha esito positivo, pone la RT nella coda    |
+|                                                 | PULL                                            |
 +-------------------------------------------------+-------------------------------------------------+
 | Post-Condizione                                 | Al termine della procedura il pagamento         |
 |                                                 | transisce nello stato RT_EC                     |
@@ -450,79 +451,90 @@ Strategie di retry per il recapito della RT
 
 **Tabella** **9: Strategie di retry per il recapito della RT**
 
-|RT_PUSH|
+|image9|
 
 **Figura** **10: meccanismi di recovery per RT PUSH**
 
 1. Il PSP sottomette al NodoSPC la RT attraverso la primitiva *nodoInviaRT*:
 
-**Alternativamente**
+Si possono presentare i seguenti due scenari alternativi:
 
-**EC in timeout**
+**EC indisponibile**
 
-2. Il NodoSPC replica emanando un *faultBean* il cui *faultBean.faultCode* è pari a
-   PPT_STAZIONE_INT_PA_TIMEOUT
+2. Il NodoSPC replica emanando un *faultBean* il cui *faultBean.faultCode* è pari a:
+   PPT_STAZIONE_INT_PA_TIMEOUT (indisponibilità funzionale della controparte) oppure
+   PPT_STAZIONE_INT_PA_IRRAGGIUNGIBILE (mancata raggiungibilità della controparte); il PSP pone la
+   RT nella coda PULL.
 
-**Timeout**
+*NB: nel caso di indisponibilità funzionale della controparte, per gestire l’eventualità di
+interruzione del servizio di breve durata, il PSP ha facoltà di reiterare l’invio della RT in
+modalità PUSH.*
 
-3. Il PSP non riceve alcuna risposta alla primitiva precedente
+**Nodo non disponibile**
 
-4. Il PSP ritenta nuovamente l’invio della RT in modalità PUSH per un massimo di 5 tentativi
-   attenendosi scrupolosamente alla seguente schedulazione
+3. Il PSP non riceve alcuna risposta alla primitiva di cui al punto 1
 
-+---------------+------------+
-| **Tentativo** | **Attesa** |
-+===============+============+
-| 1             | 5 secondi  |
-+---------------+------------+
-| 2             | 10 secondi |
-+---------------+------------+
-| 3             | 20 secondi |
-+---------------+------------+
-| 4             | 40 secondi |
-+---------------+------------+
-| 5             | 80 secondi |
-+---------------+------------+
+4. Il PSP ritenta nuovamente l’invio della RT in modalità PUSH per un massimo di ulteriori cinque
+   tentativi di recupero, attenendosi alla seguente schedulazione:
 
-**Alternativamente**
++-----------------------------+----------------------+
+| **# Tentativo di recupero** | **Attesa (secondi)** |
++=============================+======================+
+| 1                           | 5                    |
++-----------------------------+----------------------+
+| 2                           | 10                   |
++-----------------------------+----------------------+
+| 3                           | 20                   |
++-----------------------------+----------------------+
+| 4                           | 40                   |
++-----------------------------+----------------------+
+| 5                           | 80                   |
++-----------------------------+----------------------+
 
-**Response OK alla primitiva**
+Si possono presentare i seguenti due scenari alternativi:
 
-5. Il NodoSPC inoltra *response* positiva alla primitiva di cui al punto precedente
+**Response ad uno dei tentativi di recupero**
 
-*Nessuna response o medesimo faultBean di cui al punto 2*
+5. Il PSP riceve la *response*, termina qualsiasi attività di recupero della RT
 
-6.  A questo punto in caso di mancata response nei tempi previsti oppure al manifestarsi del
-    medesimo errore di cui al punto 2 il PSP colloca la RT nella coda PULL.
+**Esaurimento dei tentativi di recupero**
 
-7.  Il PSP mediante la SOAP Request pspChiediListaRT chiede al PSP la lista delle RT da recuperare
+6. Il PSP non riceve alcuna *response* nei tempi previsti all’invocazione di cui al punto 4
 
-8.  Il PSP replica alla primitiva di cui al punto precedente fornendo *response* OK e la lista delle
+7. Il PSP colloca la RT nella coda PULL terminando le azioni di recupero
+
+**Processo di recupero RT in modalità PULL**
+
+8.  Il NodoSPC, mediante la SOAP *request* *pspChiediListaRT* chiede al PSP la lista delle RT da
+    recuperare
+
+9.  Il PSP replica alla primitiva di cui al punto precedente fornendo *response* OK e la lista delle
     RT da prelevare
 
-9.  Il NodoSPC preleva la RT mediante la primitiva *pspChiediRT*
+10. Il NodoSPC preleva la RT mediante la primitiva *pspChiediRT*
 
-10. Il PSP replica con *response* OK fornendo al RT richiesta
+11. Il PSP replica con *response* OK fornendo al RT richiesta
 
-11. Il NodoSPC valida la RT prelevata precedentemente
+12. Il NodoSPC valida la RT prelevata precedentemente
 
-**Alternativamente**
+Si possono presentare i seguenti due scenari alternativi:
 
 **In caso di RT corretta**
 
-12. Il NodoSPC invia conferma al PSP dell’avvenuta ricezione della RT mediante la primitiva
-    pspInviaAckRT. Il mesaggio di ackRT riporterà nel dato statoMesaggioReferenziato il valore ACTC.
+13. Il NodoSPC invia conferma al PSP dell’avvenuta ricezione della RT mediante la primitiva
+    *pspInviaAckRT*. Il messaggio di ackRT riporterà nel dato *statoMessaggioReferenziato* il valore
+    ACTC.
 
-13. Il PSP elimina la RT dalla coda PULL
+14. Il PSP elimina la RT dalla coda PULL
 
-14. Il PSP replica fornendo esito OK alla primitiva di cui al punto 14
+15. Il PSP replica fornendo esito OK alla primitiva di cui al punto 14.
 
 **In caso di RT non corretta**
 
-15. Il NodoSPC invia notifica al PSP il rifiuto della RT mediante la primitiva *pspInviaAckRT*. Il
-    mesaggio di *ackRT* riporterà nel dato *statoMesaggioReferenziato* il valore RJCT.
+16. Il NodoSPC notifica al PSP il rifiuto della RT mediante la primitiva *pspInviaAckRT*. Il
+    messaggio di *ackRT* riporterà nel dato *statoMessaggioReferenziato* il valore RJCT.
 
-16. Il PSP replica fornendo esito OK alla primitiva di cui al punto precedente
+17. Il PSP replica fornendo esito OK alla primitiva di cui al punto precedente
 
 Funzioni Ausiliarie per il NodoSPC
 ----------------------------------
@@ -642,9 +654,9 @@ Richiesta di avanzamento RT
 .. |sd_nodoChiediStatoElaborazioneFlussoRendicontazione| image:: media_FunzioniStrategieRecupero/media/image9.png
    :width: 6.69583in
    :height: 2.54792in
-.. |RT_PUSH| image:: media_FunzioniStrategieRecupero/media/image10.png
-   :width: 3.43396in
-   :height: 4.00499in
+.. |image9| image:: media_FunzioniStrategieRecupero/media/image10.png
+   :width: 6.4087in
+   :height: 7.94936in
 .. |pspChiediAvanzamentoRPT| image:: media_FunzioniStrategieRecupero/media/image11.png
    :width: 5.91319in
    :height: 2.98264in

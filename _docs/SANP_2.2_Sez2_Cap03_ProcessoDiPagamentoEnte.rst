@@ -1,11 +1,12 @@
 Il Processo di pagamento attivato presso l’Ente Creditore
 =========================================================
 
-Rientrano in questa categoria di pagamenti quelli richiesti dall’utilizzatore finale attraverso i
+Rientrano in questa categoria di pagamenti quelli richiesti dall’Utilizzatore finale attraverso i
 siti web o *mobile app* o altri strumenti tecnologici messi a disposizione dagli Enti Creditori per
-i pagamenti elettronici. Il processo di pagamento attivato presso l’Ente Creditore consente di
-gestire le modalità di incasso sia nel caso in cui l’utilizzatore finale abbia ricevuto un avviso di
-pagamento, sia nel caso opposto (pagamenti spontanei)
+i pagamenti elettronici. Il processo di pagamento attivato presso l’Ente Creditore risulta
+particolarmente congeniale al caso di pagamenti spontanei (con generazione della posizione
+debitoria), ma deve gestire anche il caso in cui l’utilizzatore finale abbia ricevuto un avviso di
+pagamento.
 
 Le attività a carico degli Enti Creditori per gestire il processo sono rappresentate dalla
 realizzazione delle procedure di pagamento (sia in termini organizzativi, che informatici); le
@@ -14,15 +15,15 @@ riferimento.
 
 Il diagramma di **Figura 1** descrive il processo di pagamento attraverso l’Ente Creditore. Al fine
 di rendere tale diagramma immediatamente leggibile la descrizione del *workflow* è stata aggregata
-in sottoparagrafi secondo lo schema logico che segue.
+in sotto-paragrafi secondo lo schema logico che segue.
 
 |image0|
 
 **Figura** **1** **Schema logico del processo di business del pagamento presso l’Ente Creditore**
 
-Nel processo in oggetto (**Figura 2**) sono coinvolti quattro soggetti:
+Nel processo schematizzato in **Figura 2** sono coinvolti quattro soggetti:
 
--  utilizzatore finale
+-  Utilizzatore finale
 
 -  Ente Creditore
 
@@ -41,27 +42,27 @@ Come descritto nei paragrafi precedenti, l’utilizzatore finale può eseguire u
 diverse che generano due diramazioni distinte (gateway G2.1.1) nel caso abbia disponibile o meno un
 avviso di pagamento (digitale e analogico).
 
+In entrambi i casi l’Ente Creditore rende disponibile all’Utilizzatore finale un’interfaccia utente
+al fine di reperire i dati necessari a comporre una o più RPT e innescare il pagamento.
+
 Generazione posizione debitoria
 -------------------------------
 
-La generazione della posizione debitoria è l’evento che costituisce la premessa al pagamento sul
-Sistema pagoPA.
+La generazione di una posizione debitoria è l’evento propedeutico al pagamento sul Sistema pagoPA.
 
 In determinate circostanze, previste nello specifico dalla vigente normativa, un soggetto matura un
 debito in favore di una Pubblica Amministrazione (centrale o locale). In questo caso lo stesso Ente
-Creditore assume l’iniziativa di generare una posizione debitoria e provvede a notificare l’avviso
-di pagamento al soggetto pagatore. L’EC è altresì tenuto ad accompagnare la notifica con avviso
-analogico, anche con l’invio al NodoSPC di un avviso digitale *push*. Questa attività è parte del
-processo di avvisatura digitale.
+Creditore assume l’iniziativa di generare una posizione debitoria e provvede, se del caso, a
+notificare l’avviso di pagamento al soggetto pagatore. Questa casistica prende il nome di pagamento
+dovuto. Nel caso che l’EC sia tenuto ad accompagnare la notifica con un avviso di pagamento
+analogico, provvede anche a inviare al NodoSPC un avviso digitale.
 
-Nel caso non sussistano le circostanze sopra indicate per il pagamento dovuto, ovvero l’utilizzatore
-finale non sia in possesso di un avviso digitale, lo stesso utilizzatore può assumere l’iniziativa
-di avviare il pagamento (pagamento spontaneo). In questo caso, se l’utilizzatore finale accede a
-portali messi a disposizione dall’Ente Creditore, la posizione debitoria è generata (*Task* T2.1.1).
-È facoltà dell’EC esporre delle funzioni che consentono al soggetto pagatore di riceve un avviso
-digitale (nel caso abbia aderito al servizio) ovvero provveda alla stampa di un avviso analogico, da
-utilizzare per disporre il pagamento presso i Prestatori di Servizi di Pagamento che offrono tale
-opzione.
+Nel caso non sussistano le circostanze sopra indicate, l’Utilizzatore finale può comunque assumere
+l’iniziativa di avviare il pagamento (si parla in questo caso di pagamento spontaneo) accedendo al
+portale messo a disposizione dall’Ente Creditore; in tal caso l’Ente Creditore genera la relativa
+posizione debitoria (*Task* T2.1.1). È facoltà dell’EC esporre delle funzioni che producano, per lo
+stesso pagamento, un avviso (analogico o digitale), da utilizzare in seguito per disporre il
+pagamento presso un Prestatore di Servizi di Pagamento.
 
 Scelta canale di pagamento 
 ---------------------------
@@ -95,54 +96,39 @@ servizi sopra citati.
 Autorizzazione del pagamento 
 -----------------------------
 
-L’autorizzazione del pagamento viene effettuata in maniera differente a seconda del servizio scelto
-dall’utilizzatore finale:
+Il processo di pagamento segue percorsi differenti a seconda del servizio del PSP scelto
+dall’Utilizzatore finale:
 
--  In caso di pagamento con carta di credito o di debito (*Gateway* G2.1.2), l’Utilizzatore finale
+-  In caso di pagamento con carta (di credito o di debito) (*Gateway* G2.1.2), l’Utilizzatore finale
    immette (o recupera nel caso li abbia precedentemente memorizzati) i dati della carta (*Task*
-   T2.1.4) e gli viene proposto il pagamento in una *check out page* gestita dal NodoSPC.
+   T2.1.4) e quindi decide se autorizzare il pagamento (*Gateway* G2.1.5).
 
-   -  Questa tipologia di pagamento prevede che l’autorizzazione del pagamento da parte
-      dell’utilizzatore finale sia inizializzata dal NodoSPC, attraverso un proprio POS virtuale.
-      Nel caso che la carta utilizzata sia stata emessa da un Prestatore di servizi di Pagamento
-      aderente al Sistema pagoPA, il relativo gestore dell’operazione sarà proposto automaticamente
-      all’utilizzatore finale. Questa casistica è denominata pagamento “on us”. Nel caso in cui
-      l’utilizzatore finale non confermi tale scelta ovvero il Prestatore di Servizi di Pagamento
-      emittente della carta non aderisca al Sistema pagoPA, l’utilizzatore finale dovrà scegliere il
-      gestore dell’operazione da una lista di Prestatori di servizi di pagamento che mostri i costi
-      della commissione richiesta per il servizio. In questo caso si realizza un pagamento “not on
-      us”.
+   -  Il pagamento con carta è gestito da un POS virtuale del NodoSPC con due differenti esperienze
+      utente. Nel caso di pagamento *on us* il NodoSPC riconosce dai dati della carta immessi che il
+      PSP emittente (*issuer*) è aderente al sistema pagoPA e quindi lo propone come gestore del
+      pagamento (*acquirer*) di default. Altrimenti, casistica *not on us,* tale scelta è compiuta
+      esplicitamente dall’Utilizzatore finale a cui viene proposta una lista di PSP.
 
-      -  I Prestatori di Servizi di Pagamento che offrono il servizio di pagamento con carta devono:
+   -  I Prestatori di Servizi di Pagamento che offrono il servizio di gestione del pagamento con
+      carta devono preventivamente configurarsi come tali. I dettagli delle procedure da seguire
+      sono riportati nella sezione IV.
 
-   -  indicare al NodoSPC le commissioni richiesta per i pagamenti “on us” e i pagamenti “not on
-      us”;
+-  Per tutte le altre tipologie di pagamento, dopo che l’Utilizzatore finale ha selezionato un PSP
+   sul *front-end* del sistema, il NodoSPC inoltra in *back-end* il carrello allo stesso Prestatore
+   di Servizi di Pagamento responsabile dell’esecuzione (*Task* T2.1.5).
 
-   -  Configurare sul NodoSPC le informazioni necessarie a configurare il dialogo tecnico con il POS
-      virtuale con il NodoSPC.
+   -  L’esperienza utente del processo di pagamento può proseguire in un *front-end* gestito dal
+      Prestatore di Servizi di Pagamento (quindi esterno al sistema pagoPA), che prevede
+      l’identificazione del soggetto versante (*Task* T2.1.8) e la successiva autorizzazione
+      (*Gateway* G2.1.4).
 
-   -  I dettagli delle procedure da seguire sono riportati nella sezione IV.
-
-   -  Sul portale dell’Ente Creditore devono essere messe a disposizione le funzioni che permettono
-      all’utilizzatore finale di interrogare lo stato della sua richiesta di pagamento, scaricare
-      una copia di ricevuta o quietanza di pagamento, scaricare copia analogica e/o duplicato del
-      documento informatico Ricevuta Telematica.
-
--  In caso di pagamento con autorizzazione gestita dal Prestatore Servizi di Pagamento (a cui si
-   assimila anche il pagamento attraverso il circuito MyBank, purché sia previsto un pagamento
-   singolo) (*Gateway* G2.1.3), il NodoSPC inoltra in *back-end* il carrello al Prestatore di
-   Servizi di Pagamento (o al Wrapper Mybank) (*Task* T2.1.5). Se il canale di pagamento del
-   Prestatore di Servizi di Pagamento lo prevede, l’esperienza utente del processo di pagamento può
-   proseguire in un *front-end* gestito dal Prestatore di Servizi di Pagamento (quindi esterno al
-   NodoSPC), prevedendo l’identificazione del soggetto versante che autorizza il pagamento (*Task*
-   T2.1.8). In ogni caso, a valle della autorizzazione, l’utilizzatore finale viene reindirizzato al
-   *front-end* dell’Ente Creditore da cui aveva avviato il pagamento (*Task* T2.1.9).
-
-   -  Queste tipologie di pagamento prevedono che l’autorizzazione del pagamento da parte
-      dell’utilizzatore finale avvenga mediante l’interazione con strumenti messi a disposizione dal
-      Prestatore di Servizi di Pagamento. L’esecuzione del pagamento ed il rilascio della relativa
-      attestazione (RT) avvengono in funzione delle modalità di autorizzazione del pagamento
-      adottate dal Prestatore di Servizi di Pagamento. Si distingue quindi l’autorizzazione:
+   -  In caso contrario, l’Utilizzatore finale viene reindirizzato al *front-end* dell’Ente
+      Creditore da cui era stato avviato il pagamento (*Task* T2.1.7). In questo caso
+      l’autorizzazione del pagamento da parte dell’Utilizzatore finale avviene mediante
+      l’interazione con strumenti messi a disposizione dal Prestatore di Servizi di Pagamento.
+      L’esecuzione del pagamento ed il rilascio della relativa attestazione (RT) avvengono in
+      funzione delle modalità di autorizzazione del pagamento adottate dal Prestatore di Servizi di
+      Pagamento. Si distingue quindi l’autorizzazione:
 
       -  contestuale alla richiesta effettuata, in funzione dei livelli di servizio pattuiti con il
          Prestatore di Servizi di Pagamento, se l’utilizzatore finale ha pre-autorizzato il
@@ -151,55 +137,44 @@ dall’utilizzatore finale:
       -  non contestuale, se l’autorizzazione viene rilasciata successivamente alla ricezione della
          richiesta di pagamento telematico da parte del Prestatore di Servizi di Pagamento,
          attraverso canali da questo messi a disposizione (ad esempio: home banking, notifica su app
-         per smartphone o tablet, ecc.).
+         per smartphone o tablet, ecc.). Assimilabile a tale tipologia è il caso di una transazione
+         Mybank: il carrello si ferma a una componente del Nodo, il Wrapper, che quindi ingaggia la
+         componente *Initiating Party* della *Seller Bank*, per la gestione delle fasi successive.
 
-         -  In ogni caso il Prestatore di Servizi di Pagamento deve restituire la ricevuta
-            telematica nei tempi stabiliti secondo quanto previsto nel documento “Indicatori di
-            qualità per i soggetti aderenti” pubblicato sul sito istituzionale dell’AgID, in modo da
-            consentire all’utilizzatore finale di usufruire dei servizi per cui ha pagato.
+      -  Tutte i percorsi precedenti, incluso il ramo derivante dall’autorizzazione al pagamento con
+         carta, confluiscono nel punto in cui risulta noto l’esito del pagamento disposto
+         dall’Utilizzatore finale e quindi il PSP possa inoltrare le RT da esso prodotte (*Task*
+         T2.1.12).
 
-   -  Nel caso di pre-autorizzazione del pagamento, resta salva la possibilità per l’utilizzatore
-      finale di revocare il consenso rilasciato al Prestatore di Servizi di Pagamento ad eseguire
-      un’operazione di pagamento, in presenza delle condizioni previste all’articolo 17 del Decreto
-      legislativo n. 11/2010.
+L’Ente Creditore riceve tutte le RT, comprese quelle negative generate dal NodoSPC (*Task* T2.1.14).
+Il Prestatore di Servizi di Pagamento deve restituire la ricevuta telematica nei tempi stabiliti dal
+documento “\ *Indicatori di qualità per i soggetti aderenti*\ ” pubblicato sul sito istituzionale
+dell’AgID, in modo da consentire all’Utilizzatore finale di usufruire dei servizi per cui ha pagato.
 
-A questo punto, nei casi diversi dall’autorizzazione presso il Prestatore di Servizi di Pagamento,
-per il quale l’autorizzazione avviene al di fuori del NodoSPC, l’Utilizzatore finale decide se
-autorizzare (*Task* T2.1.11):
-
--  In caso negativo, se il metodo di pagamento scelto era carta di credito (*Gateway* G2.1.7) il
-   NodoSPC genera una ricevuta telematica negativa (*Task* T2.1.14), altrimenti è il Prestatore di
-   Servizi di Pagamento che genera la ricevuta telematica negativa (*Task* T2.1.15)
-
--  In caso positivo, se l’Utilizzatore effettua il pagamento con carta (*Gateway* G2.1.6) il NodoSPC
-   inoltra la richiesta di pagamento telematico al Prestatore Servizi di Pagamento (*Task* T2.1.12),
-   altrimenti il Prestatore Servizi di Pagamento incassa il pagamento (*Task* T2.1.12)
-
-Una volta effettuato l’incasso il Prestatore Servizi di Pagamento genera la ricevuta telematica,
-redirezionando sul sito dell’Ente Creditore in caso di carta di credito, (*Task* 2.1.16) e la
-trasmette al NodoSPC (*Task* T2.17).
-
-Il NodoSPC mette la ricevuta telematica a disposizione del’Ente Creditore (*Task* 2.1.17) che a sua
-volta può mettere a disposizione dell’Utilizzatore finale una ricevuta (*Task* T2.18).
-
-L’Utilizzatore finale a questo punto può ottenere la ricevuta (Task T2.1.19) e terminare il
-processo.
+L’Ente Creditore può mettere a disposizione dell’Utilizzatore finale una ricevuta (Task T2.1.15) e
+terminare il processo. Sul portale dell’Ente Creditore devono essere messe a disposizione le
+funzioni che permettono all’Utilizzatore finale di interrogare lo stato della sua richiesta di
+pagamento, scaricare una copia di ricevuta o quietanza di pagamento, scaricare copia analogica e/o
+duplicato del documento informatico Ricevuta Telematica.
 
 Accredito e rendiconto
 ----------------------
 
-Dopo aver effettuato il pagamento, il Prestatore Servizi di Pagamento lo accredita sul conto
-dell’Ente Creditore (*Task* T2.1.20).
+Nella giornata successiva all’incasso, il Prestatore di Servizi di Pagamento accredita le somme sul
+conto dell’Ente Creditore (*Task* T2.1.16).
 
-Il Prestatore Servizi di Pagamento invia i dati relativi alla rendicontazione al NodoSPC (*Task*
-T2.1.21).
+Nella giornata successiva all’accredito, il Prestatore di Servizi di Pagamento invia al NodoSPC i
+dati relativi alla rendicontazione (*Task* T2.1.17).
 
-Il NodoSPC trasmette i dati di rendicontazione all’Ente Creditore (*Task* T2.1.22), che li riceve
-(*Task* T2.1.23).
+Il NodoSPC mantiene disponibili per l’Ente Creditore i dati di rendicontazione nei dieci giorni
+successivi (*Task* T2.1.18).
+
+L’Ente Creditore recupera i dati di rendicontazione (*Task* T2.1.19) e può quindi avviare il
+processo di riconciliazione.
 
 .. |image0| image:: media_ProcessoDiPagamentoEnte/media/image1.png
    :width: 6.37446in
    :height: 0.87811in
 .. |image1| image:: media_ProcessoDiPagamentoEnte/media/image5.png
-   :width: 9.39306in
-   :height: 4.64189in
+   :width: 10.75667in
+   :height: 5.31522in

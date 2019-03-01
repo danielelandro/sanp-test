@@ -4,13 +4,17 @@ Back-office
 Revoca e storno
 ---------------
 
-Il NodoSPC mette a disposizione degli EC e dei PSP aderenti, rispettivamente, i processi di storno e
-revoca di pagamento, da intendersi come funzionalità di supporto del sistema pagoPA a cui ricorrere
-per sanare situazioni di eccezione. Come specificato nella figura successiva, tali funzionalità sono
-istanziate per scopi di business ben definiti; ad esempio per il rientro da situazioni anomale o di
-incoerenza nei documenti prodotti durante il ciclo di vita del pagamento, rispetto allo stato di
-fatto del pagamento stesso. Al variare del soggetto istanziante e delle motivazioni che innescano
-l’esecuzione del processo, possono verificarsi le situazioni mostrate nella figura seguente.
+Il NodoSPC mette a disposizione servizi di interscambio che i soggetti aderenti possono utilizzare
+per realizzare indifferentemente processi di storno e/o revoca di pagamento, purché siano intesi
+come funzionalità di supporto del sistema pagoPA a cui ricorrere unicamente per sanare situazioni di
+eccezione. Ogni soggetto aderente rileva la disponibilità della controparte ad avviare tali processi
+mediante dati di configurazione.
+
+Come specificato nella figura successiva, tali funzionalità sono istanziate per scopi di business
+ben definiti; ad esempio per il rientro da situazioni anomale o di incoerenza nei documenti prodotti
+durante il ciclo di vita del pagamento, rispetto allo stato di fatto del pagamento stesso. Al
+variare del soggetto istanziante e delle motivazioni che innescano l’esecuzione del processo,
+possono verificarsi le situazioni mostrate nella figura seguente.
 
 |image0|
 
@@ -61,7 +65,7 @@ determinano l’innesco, come da tabella successiva:
 |                                |                                | di annullo tecnico e per EC di |
 |                                |                                | predisporre le opportune       |
 |                                |                                | soluzioni tecniche per la      |
-|                                |                                | gestione di tali richieste     |
+|                                |                                | gestione di tali richieste.    |
 +--------------------------------+--------------------------------+--------------------------------+
 |                                | *charge-back* Utente           | Innescato dal PSP nel caso in  |
 |                                |                                | cui l’Utilizzatore finale      |
@@ -497,195 +501,198 @@ della richiesta di pagamento, il processo di riconciliazione opera riproducendo 
 ciclo di quattro passi da compiersi nella successione riportata di seguito per ogni PSP aderente al
 NodoSPC:
 
-+------------------------+------------------------+-------------------------------+--------------------------------+
-| **Passo**              | **Descrizione**        | **Attività EC**               | **Attività PSP**               |
-+========================+========================+===============================+================================+
-| 1.                     | Quadratura degli       | A chiusura del giorno         | A chiusura della               |
-|                        | incassi                | lavorativo (D), il            | giornata operativa il          |
-|                        |                        | motore individua le           | PSP, controlla la              |
-|                        |                        | RPT inviate prima del         | quadratura degli               |
-|                        |                        | cut-off. Per ognuna di        | incassi eseguiti per           |
-|                        |                        | tali RPT il motore            | l’EC determinando:             |
-|                        |                        | seleziona le                  |                                |
-|                        |                        | corrispondenti RT, ne         | -  Gli IUV per cui ha          |
-|                        |                        | controlla la                  |    emesso RT+                  |
-|                        |                        | quadratura e                  |                                |
-|                        |                        | distingue,                    | -  Gli IUV da                  |
-|                        |                        | accantonandole, quelle        |    rendicontare con            |
-|                        |                        | relative a un incasso         |    codice 9                    |
-|                        |                        | (RT+). Ai fini dei            |                                |
-|                        |                        | successivi passi del          | Determina inoltre gli          |
-|                        |                        | processo di                   | importi dello SCT              |
-|                        |                        | rendicontazione sarà          | Cumulativo e degli SCT         |
-|                        |                        | altresì necessario            | singoli da eseguire.           |
-|                        |                        | individuare gli IUV           |                                |
-|                        |                        | per i quali, a causa          |                                |
-|                        |                        | di una eccezione,             |                                |
-|                        |                        | l’incasso, benché sia         |                                |
-|                        |                        | stato effettuato non          |                                |
-|                        |                        | corrisponde a una RT.         |                                |
-|                        |                        | Tali incassi saranno          |                                |
-|                        |                        | rendicontati mediante         |                                |
-|                        |                        | *codiceEsitoSingoloPagamento* |                                |
-|                        |                        | 9 nel caso di                 |                                |
-|                        |                        | riversamento                  |                                |
-|                        |                        | cumulativo.                   |                                |
-+------------------------+------------------------+-------------------------------+--------------------------------+
-| 2.                     | Ricezione SCT          | nel giorno D+1, la            | Esegue SCT di cui al           |
-|                        |                        | Banca                         | punto 1                        |
-|                        |                        | Cassiera/Tesoriera            |                                |
-|                        |                        | dell’EC riceve dal            |                                |
-|                        |                        | PSP, tramite SCT, i           |                                |
-|                        |                        | flussi finanziari             |                                |
-|                        |                        | relativi agli incassi         |                                |
-|                        |                        | del giorno D. In              |                                |
-|                        |                        | generale, per ogni            |                                |
-|                        |                        | PSP, l’EC può ricevere        |                                |
-|                        |                        | un SCT cumulativo e un        |                                |
-|                        |                        | numero indeterminato          |                                |
-|                        |                        | di SCT singoli                |                                |
-|                        |                        | relativi a una sola           |                                |
-|                        |                        | RT+                           |                                |
-+------------------------+------------------------+-------------------------------+--------------------------------+
-| 3.                     | Quadratura FDR         | nel giorno D+2 il             | Il PSP genera il FDR,          |
-|                        |                        | motore, interrogando          | associandolo allo SCT          |
-|                        |                        | il NodoSPC, può               | di cui al punto 2 con          |
-|                        |                        | effettuare il                 | il dato                        |
-|                        |                        | downloading del Flusso        | identificativoFlusso,          |
-|                        |                        | di Rendicontazione            | indicando:                     |
-|                        |                        | (FDR) relativo al             |                                |
-|                        |                        | giorno D. Il motore           | -  Gli IUV per i quali         |
-|                        |                        | può quindi controllare        |    ha emesso RT+               |
-|                        |                        | la quadratura dello           |    codiceEsitoSingoloPagamento |
-|                        |                        | FDR, abbinando ad             |    pari a 0                    |
-|                        |                        | esso, in base allo            |                                |
-|                        |                        | IUV, le RT+ relative          |                                |
-|                        |                        | al giorno D, gli              | -  Gli IUV                     |
-|                        |                        | ulteriori incassi non         |    rendicontati con            |
-|                        |                        | corrispondenti a una          |    codiceEsitoSingoloPagamento |
-|                        |                        | RT e gli ER (Esito            |     pari a 9                   |
-|                        |                        | Revoca) eventualmente         |                                |
-|                        |                        | contenuti nel FDR. In         |                                |
-|                        |                        | questo ultimo caso il         | -  IUV associati a un          |
-|                        |                        | motore esclude gli ER         |    Estio Revoca                |
-|                        |                        | rendicontati dal              |    accettato dall’EC           |
-|                        |                        | novero degli ER da            |    (ER+)                       |
-|                        |                        | controllare. Inoltre          |                                |
-|                        |                        | il motore, nel                | Infine mette a                 |
-|                        |                        | processo di                   | disposizione dell’EC           |
-|                        |                        | quadratura, distingue         | il FDR relativo al             |
-|                        |                        | gli importi a                 | giorno D                       |
-|                        |                        | compensazione (in             |                                |
-|                        |                        | eccesso o difetto)            |                                |
-|                        |                        | eventualmente                 |                                |
-|                        |                        | contenuti nel FDR. Per        |                                |
-|                        |                        | ogni PSP, il motore           |                                |
-|                        |                        | distingue e accantona         |                                |
-|                        |                        | le RT+ non abbinate a         |                                |
-|                        |                        | un FDR (RT:sub:`S`)           |                                |
-+------------------------+------------------------+-------------------------------+--------------------------------+
-| 4.                     | Quadratura             | A chiusura del giorno         |                                |
-|                        | riversamenti SCT:      | lavorativo D+2 il             |                                |
-|                        |                        | motore elabora tutte          |                                |
-|                        |                        | le notifiche di               |                                |
-|                        |                        | incasso relative al           |                                |
-|                        |                        | giorno D+1 ricevute           |                                |
-|                        |                        | dalla Banca                   |                                |
-|                        |                        | Cassiera/Tesoriera            |                                |
-|                        |                        | (nel caso SIOPE+ la           |                                |
-|                        |                        | notifica è                    |                                |
-|                        |                        | rappresentata dal             |                                |
-|                        |                        | "Giornale di Cassa"           |                                |
-|                        |                        | OPI). Per ogni PSP il         |                                |
-|                        |                        | motore conclude il            |                                |
-|                        |                        | processo di                   |                                |
-|                        |                        | riconciliazione               |                                |
-|                        |                        | eseguendo le seguenti         |                                |
-|                        |                        | elaborazioni:                 |                                |
-|                        |                        |                               |                                |
-|                        |                        | 1. Esegue la                  |                                |
-|                        |                        |    quadratura di ogni         |                                |
-|                        |                        |    riversamento               |                                |
-|                        |                        |    singolo in                 |                                |
-|                        |                        |    abbinamento con la         |                                |
-|                        |                        |    corrispondente RTS         |                                |
-|                        |                        |    controllando che:          |                                |
-|                        |                        |                               |                                |
-|                        |                        | 2. L’Identificativo           |                                |
-|                        |                        |    univoco versamento         |                                |
-|                        |                        |    (IUV) che                  |                                |
-|                        |                        |    identifica la              |                                |
-|                        |                        |    singola RTs                |                                |
-|                        |                        |    coincida con la            |                                |
-|                        |                        |    componente                 |                                |
-|                        |                        |    “identificativo            |                                |
-|                        |                        |    univoco versamento”        |                                |
-|                        |                        |    nel dato                   |                                |
-|                        |                        |    "Unstructured              |                                |
-|                        |                        |    Remittanced                |                                |
-|                        |                        |    Information" di            |                                |
-|                        |                        |    cui al tracciato           |                                |
-|                        |                        |    del SEPA Credit            |                                |
-|                        |                        |    Transfer nel caso          |                                |
-|                        |                        |    di versamento              |                                |
-|                        |                        |    effettuato tramite         |                                |
-|                        |                        |    SCT ovvero nel             |                                |
-|                        |                        |    campo causale nel          |                                |
-|                        |                        |    caso di versamento         |                                |
-|                        |                        |    effettuato tramite         |                                |
-|                        |                        |    bollettino di conto        |                                |
-|                        |                        |    corrente postale.          |                                |
-|                        |                        |                               |                                |
-|                        |                        | 3. Il valore del tag          |                                |
-|                        |                        |    *importoTotalePagato*      |                                |
-|                        |                        |    della stessa RTs           |                                |
-|                        |                        |    corrisponda con            |                                |
-|                        |                        |    l’importo                  |                                |
-|                        |                        |    effettivamente             |                                |
-|                        |                        |    trasferito.                |                                |
-|                        |                        |                               |                                |
-|                        |                        | 4. Esegue la                  |                                |
-|                        |                        |    quadratura di ogni         |                                |
-|                        |                        |    riversamento               |                                |
-|                        |                        |    cumulativo, in             |                                |
-|                        |                        |    abbinamento con il         |                                |
-|                        |                        |    corrispondente FDR         |                                |
-|                        |                        |    controllando che:          |                                |
-|                        |                        |                               |                                |
-|                        |                        | 5. L’Identificativo           |                                |
-|                        |                        |    del FDR coincida           |                                |
-|                        |                        |    con la componente          |                                |
-|                        |                        |    “identificativo            |                                |
-|                        |                        |    flusso versamento”         |                                |
-|                        |                        |    nel dato                   |                                |
-|                        |                        |    "Unstructured              |                                |
-|                        |                        |    Remittance                 |                                |
-|                        |                        |    Information" di            |                                |
-|                        |                        |    cui al tracciato           |                                |
-|                        |                        |    del SEPA Credit            |                                |
-|                        |                        |    Transfer nel caso          |                                |
-|                        |                        |    di versamento              |                                |
-|                        |                        |    effettuato tramite         |                                |
-|                        |                        |    SCT                        |                                |
-|                        |                        |                               |                                |
-|                        |                        | 6. Il valore del tag          |                                |
-|                        |                        |    *importoTotalePagamenti*   |                                |
-|                        |                        |    nel FDR corrisponda        |                                |
-|                        |                        |    con l’importo              |                                |
-|                        |                        |    effettivamente             |                                |
-|                        |                        |    trasferito.                |                                |
-+------------------------+------------------------+-------------------------------+--------------------------------+
++------------------------+------------------------+------------------------+------------------------+
+| **Passo**              | **Descrizione**        | **Attività EC**        | **Attività PSP**       |
++========================+========================+========================+========================+
+| 1.                     | Quadratura degli       | A chiusura del giorno  | A chiusura della       |
+|                        | incassi                | lavorativo (D), il     | giornata operativa il  |
+|                        |                        | motore individua le    | PSP, controlla la      |
+|                        |                        | RPT inviate prima del  | quadratura degli       |
+|                        |                        | cut-off. Per ognuna di | incassi eseguiti per   |
+|                        |                        | tali RPT il motore     | l’EC determinando:     |
+|                        |                        | seleziona le           |                        |
+|                        |                        | corrispondenti RT, ne  | -  Gli IUV per cui ha  |
+|                        |                        | controlla la           |    emesso RT+          |
+|                        |                        | quadratura e           |                        |
+|                        |                        | distingue,             | -  Gli IUV da          |
+|                        |                        | accantonandole, quelle |    rendicontare con    |
+|                        |                        | relative a un incasso  |    codice 9            |
+|                        |                        | (RT+). Ai fini dei     |                        |
+|                        |                        | successivi passi del   | Determina inoltre gli  |
+|                        |                        | processo di            | importi dello SCT      |
+|                        |                        | rendicontazione sarà   | Cumulativo e degli SCT |
+|                        |                        | altresì necessario     | singoli da eseguire.   |
+|                        |                        | individuare gli IUV    |                        |
+|                        |                        | per i quali, a causa   |                        |
+|                        |                        | di una eccezione,      |                        |
+|                        |                        | l’incasso, benché sia  |                        |
+|                        |                        | stato effettuato non   |                        |
+|                        |                        | corrisponde a una RT.  |                        |
+|                        |                        | Tali incassi saranno   |                        |
+|                        |                        | rendicontati mediante  |                        |
+|                        |                        | *codiceEsitoSingoloPag |                        |
+|                        |                        | amento*                |                        |
+|                        |                        | 9 nel caso di          |                        |
+|                        |                        | riversamento           |                        |
+|                        |                        | cumulativo.            |                        |
++------------------------+------------------------+------------------------+------------------------+
+| 2.                     | Ricezione SCT          | nel giorno D+1, la     | Esegue SCT di cui al   |
+|                        |                        | Banca                  | punto 1                |
+|                        |                        | Cassiera/Tesoriera     |                        |
+|                        |                        | dell’EC riceve dal     |                        |
+|                        |                        | PSP, tramite SCT, i    |                        |
+|                        |                        | flussi finanziari      |                        |
+|                        |                        | relativi agli incassi  |                        |
+|                        |                        | del giorno D. In       |                        |
+|                        |                        | generale, per ogni     |                        |
+|                        |                        | PSP, l’EC può ricevere |                        |
+|                        |                        | un SCT cumulativo e un |                        |
+|                        |                        | numero indeterminato   |                        |
+|                        |                        | di SCT singoli         |                        |
+|                        |                        | relativi a una sola    |                        |
+|                        |                        | RT+                    |                        |
++------------------------+------------------------+------------------------+------------------------+
+| 3.                     | Quadratura FDR         | nel giorno D+2 il      | Il PSP genera il FDR,  |
+|                        |                        | motore, interrogando   | associandolo allo SCT  |
+|                        |                        | il NodoSPC, può        | di cui al punto 2 con  |
+|                        |                        | effettuare il          | il dato                |
+|                        |                        | downloading del Flusso | identificativoFlusso,  |
+|                        |                        | di Rendicontazione     | indicando:             |
+|                        |                        | (FDR) relativo al      |                        |
+|                        |                        | giorno D. Il motore    | -  Gli IUV per i quali |
+|                        |                        | può quindi controllare |    ha emesso RT+       |
+|                        |                        | la quadratura dello    |    codiceEsitoSingoloP |
+|                        |                        | FDR, abbinando ad      | agamento               |
+|                        |                        | esso, in base allo     |    pari a 0            |
+|                        |                        | IUV, le RT+ relative   |                        |
+|                        |                        | al giorno D, gli       | -  Gli IUV             |
+|                        |                        | ulteriori incassi non  |    rendicontati con    |
+|                        |                        | corrispondenti a una   |    codiceEsitoSingoloP |
+|                        |                        | RT e gli ER (Esito     | agamento               |
+|                        |                        | Revoca) eventualmente  |    pari a 9            |
+|                        |                        | contenuti nel FDR. In  |                        |
+|                        |                        | questo ultimo caso il  | -  IUV associati a un  |
+|                        |                        | motore esclude gli ER  |    Estio Revoca        |
+|                        |                        | rendicontati dal       |    accettato dall’EC   |
+|                        |                        | novero degli ER da     |    (ER+)               |
+|                        |                        | controllare. Inoltre   |                        |
+|                        |                        | il motore, nel         | Infine mette a         |
+|                        |                        | processo di            | disposizione dell’EC   |
+|                        |                        | quadratura, distingue  | il FDR relativo al     |
+|                        |                        | gli importi a          | giorno D               |
+|                        |                        | compensazione (in      |                        |
+|                        |                        | eccesso o difetto)     |                        |
+|                        |                        | eventualmente          |                        |
+|                        |                        | contenuti nel FDR. Per |                        |
+|                        |                        | ogni PSP, il motore    |                        |
+|                        |                        | distingue e accantona  |                        |
+|                        |                        | le RT+ non abbinate a  |                        |
+|                        |                        | un FDR (RT:sub:`S`)    |                        |
++------------------------+------------------------+------------------------+------------------------+
+| 4.                     | Quadratura             | A chiusura del giorno  |                        |
+|                        | riversamenti SCT:      | lavorativo D+2 il      |                        |
+|                        |                        | motore elabora tutte   |                        |
+|                        |                        | le notifiche di        |                        |
+|                        |                        | incasso relative al    |                        |
+|                        |                        | giorno D+1 ricevute    |                        |
+|                        |                        | dalla Banca            |                        |
+|                        |                        | Cassiera/Tesoriera     |                        |
+|                        |                        | (nel caso SIOPE+ la    |                        |
+|                        |                        | notifica è             |                        |
+|                        |                        | rappresentata dal      |                        |
+|                        |                        | "Giornale di Cassa"    |                        |
+|                        |                        | OPI). Per ogni PSP il  |                        |
+|                        |                        | motore conclude il     |                        |
+|                        |                        | processo di            |                        |
+|                        |                        | riconciliazione        |                        |
+|                        |                        | eseguendo le seguenti  |                        |
+|                        |                        | elaborazioni:          |                        |
+|                        |                        |                        |                        |
+|                        |                        | 1. Esegue la           |                        |
+|                        |                        |    quadratura di ogni  |                        |
+|                        |                        |    riversamento        |                        |
+|                        |                        |    singolo in          |                        |
+|                        |                        |    abbinamento con la  |                        |
+|                        |                        |    corrispondente RTS  |                        |
+|                        |                        |    controllando che:   |                        |
+|                        |                        |                        |                        |
+|                        |                        | 2. L’Identificativo    |                        |
+|                        |                        |    univoco versamento  |                        |
+|                        |                        |    (IUV) che           |                        |
+|                        |                        |    identifica la       |                        |
+|                        |                        |    singola RTs         |                        |
+|                        |                        |    coincida con la     |                        |
+|                        |                        |    componente          |                        |
+|                        |                        |    “identificativo     |                        |
+|                        |                        |    univoco versamento” |                        |
+|                        |                        |    nel dato            |                        |
+|                        |                        |    *“Unstructured      |                        |
+|                        |                        |    Remittanced         |                        |
+|                        |                        |    Information”* di    |                        |
+|                        |                        |    cui al tracciato    |                        |
+|                        |                        |    del SEPA Credit     |                        |
+|                        |                        |    Transfer nel caso   |                        |
+|                        |                        |    di versamento       |                        |
+|                        |                        |    effettuato tramite  |                        |
+|                        |                        |    SCT ovvero nel      |                        |
+|                        |                        |    campo causale nel   |                        |
+|                        |                        |    caso di versamento  |                        |
+|                        |                        |    effettuato tramite  |                        |
+|                        |                        |    bollettino di conto |                        |
+|                        |                        |    corrente postale.   |                        |
+|                        |                        |                        |                        |
+|                        |                        | 3. Il valore del tag   |                        |
+|                        |                        |    *importoTotalePagat |                        |
+|                        |                        | o*                     |                        |
+|                        |                        |    della stessa RTs    |                        |
+|                        |                        |    corrisponda con     |                        |
+|                        |                        |    l’importo           |                        |
+|                        |                        |    effettivamente      |                        |
+|                        |                        |    trasferito.         |                        |
+|                        |                        |                        |                        |
+|                        |                        | 4. Esegue la           |                        |
+|                        |                        |    quadratura di ogni  |                        |
+|                        |                        |    riversamento        |                        |
+|                        |                        |    cumulativo, in      |                        |
+|                        |                        |    abbinamento con il  |                        |
+|                        |                        |    corrispondente FDR  |                        |
+|                        |                        |    controllando che:   |                        |
+|                        |                        |                        |                        |
+|                        |                        | 5. L’Identificativo    |                        |
+|                        |                        |    del FDR coincida    |                        |
+|                        |                        |    con la componente   |                        |
+|                        |                        |    “identificativo     |                        |
+|                        |                        |    flusso versamento”  |                        |
+|                        |                        |    nel dato            |                        |
+|                        |                        |    “\ *Unstructured    |                        |
+|                        |                        |    Remittance          |                        |
+|                        |                        |    Information*\ ” di  |                        |
+|                        |                        |    cui al tracciato    |                        |
+|                        |                        |    del SEPA Credit     |                        |
+|                        |                        |    Transfer nel caso   |                        |
+|                        |                        |    di versamento       |                        |
+|                        |                        |    effettuato tramite  |                        |
+|                        |                        |    SCT                 |                        |
+|                        |                        |                        |                        |
+|                        |                        | 6. Il valore del tag   |                        |
+|                        |                        |    *importoTotalePagam |                        |
+|                        |                        | enti*                  |                        |
+|                        |                        |    nel FDR corrisponda |                        |
+|                        |                        |    con l’importo       |                        |
+|                        |                        |    effettivamente      |                        |
+|                        |                        |    trasferito.         |                        |
++------------------------+------------------------+------------------------+------------------------+
 
 **Tabella** **8: Motore di Riconciliazione**
 
-Gestione degli errori
+Gestione degli errori 
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Il paragrafo mostra le strategie di risoluzione per gli errori che possono verificarsi durante
 l’esecuzione del processo di quadratura mediante il motore di riconciliazione, rispetto ai passi
 presi in esame nella descrizione dell’MDR stesso.
 
-Passo3: Quadratura FDR
+Passo3: Quadratura FDR 
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 -  **FDR non quadra**
@@ -742,7 +749,7 @@ le controparti attraverso il tavolo operativo.
 Gestione degli errori
 ---------------------
 
-Gestione degli errori di revoca
+Gestione degli errori di revoca 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Il paragrafo mostra i casi di errore che si possono verificare durante il processo di richiesta di
@@ -971,7 +978,7 @@ La Tabella successiva mostra le azioni di controllo suggerite per la risoluzione
 
 **Tabella** **13: Strategia di risoluzione dello scenario RR rifiutata dall'EC**
 
-Gestione degli errori di storno
+Gestione degli errori di storno 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Il paragrafo mostra i casi di errore che si possono verificare durante il processo di storno di un
@@ -1298,7 +1305,7 @@ In ogni caso
 
 **Tabella** **18: strategia di risoluzione**
 
-Gestione degli errori di riconciliazione
+Gestione degli errori di riconciliazione 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Il paragrafo descrive la gestione degli errori che possono verificarsi durante l’esercizio del

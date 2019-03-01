@@ -39,47 +39,43 @@ Nel Sistema pagoPA ogni pagamento presuppone la creazione propedeutica, nel sist
 dell’Ente Creditore, di una posizione debitoria. All’Ente Creditore compete la gestione degli stati
 del ciclo di vita della posizione debitoria, che, in linea generale, corrispondono alle attività di:
 
-1. Creazione. La posizione debitoria viene creata dall’ Ente Creditore e posta nello stato di
-   “Aperta”. Si sottolinea che, al fine della semplificazione tecnica del sistema, si definisce
-   “posizione debitoria” sia la creazione che avviene su iniziativa dell’Ente Creditore (es.
-   maturazione delle condizioni per il pagamento di una imposta) sia quella che avviene su
-   iniziativa dell’utente (es. richiesta di un servizio), anche se in quest’ultimo caso
-   l’utilizzatore finale non è effettivamente in debito con l’Ente Creditore fino a quando non
-   acquista il servizio.
+1. Creazione. La posizione debitoria viene creata dall’Ente Creditore e posta nello stato di
+   “Aperta”. Si sottolinea che in questa sede si definisce “posizione debitoria” sia la creazione
+   che avviene su iniziativa dell’Ente Creditore (es. maturazione delle condizioni per il pagamento
+   di una imposta) sia quella che avviene su iniziativa dell’Utilizzatore finale (es. richiesta di
+   un servizio), anche se in quest’ultimo caso l’Utilizzatore finale stesso non è effettivamente in
+   debito con l’Ente Creditore.
 
-2. Aggiornamento. La posizione debitoria viene aggiornata dell’Ente Creditore ogni qualvolta
-   intervengano eventi che modificano le informazioni associate a una posizione debitoria (es
-   sanzioni per decorrenza dei termini). A valle di tale aggiornamento la posizione debitoria
-   riamane in stato di aperta, ma l’Ente Creditore gestisce lo storico delle versioni.
+2. Aggiornamento. La posizione debitoria viene aggiornata dall’Ente Creditore ogni qualvolta
+   intervengano eventi che ne modificano le informazioni associate (es sanzioni per decorrenza dei
+   termini). L’attività di aggiornamento provoca un avanzamento di versione della posizione
+   debitoria che permane nello stato di “Aperta”.
 
-3. Blocco. La posizione debitoria viene bloccata, a discrezione dell’Ente Creditore, nelle more del
-   perfezionamento di un pagamento, onde evitare pagamenti ripetuti.
+3. Blocco. La posizione debitoria viene bloccata e posta nello stato “In pagamento”, a discrezione
+   dell’Ente Creditore, nelle more del perfezionamento di un pagamento, onde evitare la possibilità
+   di pagamenti ripetuti.
 
-4. Trasferimento. La posizione debitoria è posta nello stato di trasferita nel caso in cui la
+4. Trasferimento. La posizione debitoria è posta nello stato di “Trasferita” nel caso in cui la
    competenza dell’incasso passi a un altro Ente Creditore (es. iscrizione in ruolo).
 
-5. Chiusura. L’Ente Creditore pone la posizione debitoria nello stato “Chiusa” ogni qualvolta
-   intervengano eventi che la rendano non più pagabile (es saldo del debito). Lo stato è reversibile
-   nel caso in cui intervenga una revoca del pagamento che pone di nuovo la posizione debitoria in
-   una nuova versione dello stato di “Aperta”.
+5. Chiusura. L’Ente Creditore pone la posizione debitoria nello stato “Chiusa” ogni qualvolta viene
+   effettuato un pagamento che salda il debito o intervengano eventi che la rendano non più
+   pagabile. Tale stato è reversibile nel caso in cui intervenga una revoca del pagamento che pone
+   di nuovo la posizione debitoria in una nuova versione dello stato di “Aperta”.
 
 Contestualmente alla creazione di una posizione debitoria, l’Ente Creditore, se ne ricorrono le
-condizioni, deve predisporre un avviso di pagamento, in almeno una delle seguenti forme:
+condizioni, deve predisporre un avviso di pagamento che rappresenta lo strumento che rende possibile
+l’innesco del pagamento stesso presso i PSP.
 
-a) Analogico (sotto forma di avviso cartaceo o file stampabile), da recapitare all’utilizzatore
-   finale o che stampa egli stesso effettuando, se previsto, il downloading dal sito web dell’Ente
-   Creditore. Tutti i dettagli relativi all’avviso di pagamento analogico sono inclusi nel documento
-   collegato *“Il nuovo avviso di pagamento analogico nel sistema pagoPA”* pubblicata sul sito
-   dell’Agenzia per l’Italia Digitale.
+L’Ente Creditore genera il tradizionale avviso di pagamento **analogico** (sotto forma di avviso
+cartaceo o file stampabile) ogni qualvolta le norme lo obbligano a notificare a un debitore
+(cittadino o impresa) l’insorgenza di una posizione debitoria aperta nei suoi confronti. Tutte le
+norme di dettaglio che regolano la produzione di un avviso di pagamento analogico sono incluse nel
+documento collegato *“Il nuovo avviso di pagamento analogico nel sistema pagoPA”*.
 
-b) Digitale, da inviare al NodSPC per essere recapitato al servizio di *repository* del Prestatore
-   di Servizi di Pagamento scelto dall’utilizzatore finale.
-
-L’avviso è lo strumento che rende possibile l’innesco del pagamento presso i Prestatori di Servizi
-di Pagamento, che l’Ente Creditore genera ogni qualvolta le norme lo obbligano a notificare a un
-cittadino o a un’impresa l’insorgenza di una posizione debitoria aperta nei loro confronti. In
-questo caso l’Ente creditore genera contestualmente anche un avviso in modalità digitale, che
-mantiene comunque un carattere bonario.
+L’EC continua a recapitare l’avviso analogico all’Utilizzatore finale con le modalità tradizionali a
+cui può affiancare funzioni di stampa a carico dell’Utilizzatore finale dopo il downloading del
+documento.
 
 L’avviso di pagamento analogico, oltre al logotipo del Sistema pagoPA, contiene le informazioni
 indispensabili per l'esecuzione del pagamento, che sono dettagliate nella sezione III.
@@ -93,30 +89,35 @@ sull’avviso.
 
 La peculiarità di alcune postazioni messe a disposizione dai Prestatori di Servizi di Pagamento
 rende necessario automatizzare l’acquisizione dei dati presenti sull’avviso di pagamento. Per questo
-motivo tale documento è corredato, oltre che dati essenziali sopra citati, anche da un insieme di
-elementi grafici facilmente leggibili e decodificabili da apposite apparecchiature.
+motivo tale documento deve essere corredato, oltre che dati essenziali sopra citati, anche da un
+insieme di elementi grafici facilmente leggibili e decodificabili da apposite apparecchiature.
 
 I processi di creazione, aggiornamento, chiusura o annullamento di una posizione debitoria sono
 interni al sistema informativo dell’Ente Creditore. Nei casi previsti tali operazioni scatenano
 l’invio di un avviso di pagamento con strumenti digitali (avvisatura digitale), il cui processo è
 tracciato nel seguito.
 
+PagoPA consente all’Ente Creditore di affiancare all’avviso analogico un avviso **digitale** di
+natura bonaria che, conservando lo stesso contenuto informativo, permette la distribuzione e il
+pagamento in modalità totalmente dematerializzata.
+
 Con l’avvisatura digitale l’Ente Creditore permette agli utenti di accedere allo stato corrente
 della propria posizione debitoria. Attraverso il Sistema pagoPA è possibile gestire due tipologie di
 avvisatura digitale:
 
--  Avvisatura digitale *push*, ovvero su iniziativa dell’Ente Creditore
+-  Avvisatura digitale *push*, quando la distribuzione dell’avviso avviene per iniziativa dell’Ente
+   Creditore
 
--  Avvisatura digitale *pull*, ovvero su iniziativa di un Prestatore di Servizi di Pagamento per
-   soddisfare una richiesta dell’utilizzatore finale
+-  Avvisatura digitale *pull*, quando la distribuzione avviene per iniziativa di un Prestatore di
+   Servizi di Pagamento per soddisfare una richiesta dell’Utilizzatore finale.
 
 I paragrafi che seguono descrivono i *workflow* gestiti da pagoPA nei due casi.
 
-Avvisatura digitale push (su iniziativa dell’Ente Creditore)
-------------------------------------------------------------
+Avvisatura digitale *push* (su iniziativa dell’Ente Creditore)
+--------------------------------------------------------------
 
 La funzione di avvisatura digitale in modalità *push* è un servizio messo a disposizione dal Sistema
-pagoPA attraverso il NodoSPC che consente agli utilizzatori finali di ricevere avvisi in formato
+pagoPA attraverso il NodoSPC che consente agli Utilizzatori finali di ricevere avvisi in formato
 elettronico, in modo che il correlato pagamento possa essere effettuato in modalità semplice e
 sicura utilizzando il Sistema pagoPA. Salvo diverso avviso le notifiche digitali hanno un carattere
 bonario e quindi si affiancano a quelle tradizionali, già previste dalla normativa, senza
@@ -131,22 +132,21 @@ possibilità di integrare con essa ulteriori funzioni quali, a titolo di esempio
 pagamento offerti sul Sistema pagoPA, notifiche sui dispositivi da essi gestiti, (*app* su PC,
 *tablet* e *smartphone*, servizio di *home* *banking*, ecc.), gestione delle scadenze, ecc.
 
-Si puntualizza che l’utilizzatore finale, ossia il soggetto che riceve l’avvisatura da parte
-dell’Ente Creditore, è sempre il soggetto debitore dell’Ente Creditore e che, in quanto
-l’utilizzatore finale è chiamato a procedere al relativo pagamento che materialmente potrà comunque
-essere eseguito da un terzo soggetto (versante) in nome e per conto del debitore (pagatore).
+Si puntualizza che l’Utilizzatore finale, ossia il soggetto destinatario dell’avvisatura da parte
+dell’Ente Creditore, è sempre il soggetto debitore identificato dall’Ente Creditore. PagoPA non
+preclude tuttavia la possibilità che l’Utilizzatore finale chiamato a eseguire il relativo pagamento
+possa essere un terzo (soggetto versante) in nome e per conto del debitore (soggetto pagatore).
 
 L'adesione al servizio da parte dei Prestatori di Servizi di Pagamento è facoltativa, mentre gli
 Enti Creditori che generano un avviso analogico pagabile presso i Prestatori di Servizi di Pagamento
-dovranno obbligatoriamente sviluppare tale funzionalità.
+dovranno obbligatoriamente sviluppare tale funzionalità e distribuire una versione digitale di ogni
+avviso analogico generato.
 
 Il servizio in oggetto è monodirezionale in quanto prevede la distribuzione di avvisi digitali da
-parte degli Enti Creditori verso gli Utilizzatori finali, ma non prevede una risposta da parte di
-questi ultimi.
-
-L'iscrizione al servizio di avvisatura effettuata dall'utilizzatore finale presso il Prestatore di
-Servizi di Pagamento avrà efficacia per la ricezione di avvisi da parte di tutti gli Enti Creditori
-aderenti al Sistema pagoPA.
+parte degli Enti Creditori verso gli Utilizzatori finali, ma non prevede risposta da parte di questi
+ultimi. L'iscrizione al servizio di avvisatura effettuata dall'utilizzatore finale presso il
+Prestatore di Servizi di Pagamento avrà efficacia per la ricezione di avvisi da parte di tutti gli
+Enti Creditori aderenti al Sistema pagoPA.
 
 L'utente finale può iscriversi al servizio di avvisatura presso più Prestatori di Servizi di
 Pagamento: in questo caso, in fase di iscrizione presso un altro Prestatore di Servizi di Pagamento
@@ -195,29 +195,28 @@ con l’indicazione che si tratta di una cancellazione.
 Il processo di aggiornamento e annullamento dell’avviso digitale è analogo a quello della
 generazione (**Figura 3**).
 
-Avvisatura digitale pull (verifica della posizione debitoria)
--------------------------------------------------------------
+Avvisatura digitale *pull* (verifica della posizione debitoria)
+---------------------------------------------------------------
 
-L’avvisatura *pull* è una funzionalità messa a disposizione dell'utilizzatore finale che consente
-allo stesso di accedere alla propria posizione debitoria.
+L’avvisatura *pull* è una funzionalità che l’Ente Creditore mette a disposizione dell'Utilizzatore
+finale per consentirgli di accedere alla propria posizione debitoria.
 
-Il Sistema pagoPA mette a disposizione tale funzione affinché la posizione debitoria di un
-utilizzatore finale possa essere interrogata attraverso altre funzioni messe a disposizione dal
-Prestatori di Servizi di Pagamento presso il quale egli è titolare di un cassetto digitale, purché
-tale Prestatore di Servizi di Pagamento risulti aderente all'iniziativa. Tale servizio viene erogato
-con un’interrogazione della base dati dell’Ente Creditore di competenza, integrato con il “cassetto
-digitale”, e avviene secondo uno schema sincrono, attivato dall'utilizzatore finale stesso
+Il Sistema pagoPA rende disponibili opportune funzioni di interscambio affinché la posizione
+debitoria di un utilizzatore finale possa essere interrogata attraverso altre funzioni messe a
+disposizione da Prestatore di Servizi di Pagamento . Tale servizio viene erogato con
+un’interrogazione della base dati dell’Ente Creditore di competenza, integrato con il “cassetto
+digitale”, e avviene secondo uno schema sincrono, attivato dall'Utilizzatore finale stesso
 attraverso le stesse modalità descritte nel paragrafo precedente.
 
 Nel processo in oggetto (**Figura 3**) sono coinvolti quattro soggetti:
 
--  utilizzatore finale
+-  Utilizzatore finale
 
 -  Ente Creditore
 
 -  NodoSPC
 
--  Prestatore Servizi di Pagamento dell’utilizzatore finale
+-  Prestatore Servizi di Pagamento dell’Utilizzatore finale
 
 |image2|
 
@@ -243,8 +242,7 @@ Il processo segue i seguenti passi:
 
 Al fine di prevenire utilizzi non consoni, il NodoSPC si riserva la possibilità di applicare
 apposite regole di *throttling* (limitazioni nell'utilizzo). Le eventuali regole di *throttling*
-sono indicate nel documento “\ *Indicatori di qualità per i Soggetti Aderenti*\ ” pubblicato sul
-sito istituzionale dell’Agenzia per l’Italia Digitale.
+sono indicate nel documento “\ *Indicatori di qualità per i Soggetti Aderenti*\ ”.
 
 .. |image0| image:: media_GestionePosizioneDebitoria/media/image1.png
    :width: 4.08163in

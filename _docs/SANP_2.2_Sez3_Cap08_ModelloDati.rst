@@ -757,7 +757,7 @@ PSP
 L’oggetto PSP viene identificato nel sistema (campo *identificativoPSP*) attraverso il codice BIC
 oppure da un codice formato dalla concatenazione della stringa “ABI” con il valore del codice ABI
 del PSP. (La scelta fra i due identificativi deve essere compiuta dal PSP al momento della prima
-configurazione e è irreversibile). Ogni PSP è caratterizzato dalle seguenti proprietà:
+configurazione ed è irreversibile). Ogni PSP è caratterizzato dalle seguenti proprietà:
 
 -  specifica sulla pubblicazione delle informazioni;
 
@@ -781,6 +781,8 @@ All’interno di questa struttura, il PSP specifica gli attributi comuni a tutti
 pagamento che rende disponibili sul sistema:
 
 -  *dataPubblicazione*: data e ora relativa all’invio dell’ultimo aggiornamento delle informazioni;
+
+-  *release*:
 
 -  *dataInizioValidita*: data e ora di inizio validità delle informazioni;
 
@@ -903,8 +905,7 @@ Plugin
 ''''''
 
 La struttura permette al PSP di definire un set di parametri personalizzato da utilizzare per
-interpretare i parametri della redirect di risposta alla pagina di erogazione del servizio WISP vedi
-capitolo 9.
+interpretare i parametri della *redirect* di risposta alla pagina di erogazione del servizio WISP.
 
 Costi
 '''''

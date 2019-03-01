@@ -1,5 +1,5 @@
-Introduzione alla versione 2.2 - NUOVA
-======================================
+Introduzione alla versione 2.2
+==============================
 
 Il sistema dei pagamenti elettronici a favore della Pubblica Amministrazione, il Sistema pagoPA,
 garantisce agli Utilizzatori finali (cittadini e imprese) di effettuare pagamenti elettronici alla
@@ -9,7 +9,7 @@ commissione e in funzione delle proprie esigenze.
 L’introduzione del Sistema pagoPA porta benefici per i cittadini, la Pubblica Amministrazione e
 l’intero sistema Paese:
 
--  Benefici per le imprese
+-  Benefici per i Cittadini
 
    -  trasparenza e minori costi
 
